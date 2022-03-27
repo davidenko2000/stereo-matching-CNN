@@ -1,5 +1,3 @@
-# stereo-matching-CNN
-Github repository used for Bachelor's thesis.  <br /> 
 # Bachelor's thesis
 Title: "Correspondence embeddings for stereoscopic reconstruction" <br />
 Original article: <br /> 
