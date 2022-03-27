@@ -47,12 +47,6 @@ def get_image(idx, is_left):
 def load_disparity_data(train=True):
     	return np.load(paths.TRAIN_DATA if train else paths.VALID_DATA)
 
-#Method returns a model, loads trained model
-def load_model(path=paths.TRAINED_DIR):
-   	 model = torch.load(path)
-   	 model.eval()
-    	return model
-
 #Method which converts RGB images to grayscale
 def convert_to_grayscale():
         for idx in range(paths.NUM_IMAGES):
