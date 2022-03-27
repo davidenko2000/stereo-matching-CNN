@@ -4,12 +4,37 @@ import skimage
 import torch
 from matplotlib import image as mpimg
 import paths
-
+from torch import nn
 import torchvision.datasets
 from torch.utils.data import DataLoader
 from torchvision import transforms
 from PIL import Image
 
+#Method which computes a disparity map of the left and right image
+def compute_disparity_map(idx, model):
+	max_disp = path.MAX_DISP
+	model.to('cuda').eval()
+
+	left_img = get_image(idx, is_left=True)
+	right_img = get_image(idx, is_left=False)
+
+	#Adding the padding, as a result the output image will have the same dimensions as input
+	padding = paths.PATCH_SIZE // 2
+	left_pad = transforms.ToTensor()(np.pad(left_img, ((padding, padding),(padding, padding)).unsqueeze(0)
+	right_pad = transforms.ToTensor()(np.pad(right_img, ((padding, padding),(padding, padding)).unsqueeze(0)
+
+	#Making a ndarray of the tensor, which is the output of the model
+	left_array = left_pad.squeeze(0).permute(1, 2, 0).detach().numpy()
+	right_array = right_pad.squeeze(0).permute(1, 2, 0).detach().numpy()
+
+	#ndarray[HxWxD]
+	stacked_disp =  np.stack([np.sum(left_array * np.roll(right_array, d, axis=1) , axis=2) for d in range(max_disp)], axis=2)
+	#ndarray[HxW]-using argmax to extract the most similar
+	disp_map =  np.argmax(stacked_disp, axis=2)
+
+	return disp_map
+
+#Method which computes mean and standard deviation, used for normalization
 def get_mean_std():
 	 RGB_transform = transforms.Compose([
          	transforms.Resize(256),
