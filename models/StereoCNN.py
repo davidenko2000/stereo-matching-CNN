@@ -15,4 +15,5 @@ class StereoCNN(nn.Module):
 		x = F.relu(self.conv3(x))
 		x = self.conv4(x)
 		x = x.squeeze(3).squeeze(2) #dimenzije tenzora na 2. i 3. su 1, stoga ih možemo ukloniti
-		x = F.normalize(x) #normalizira vektor, dijeli s euklidskom normom
+		return  F.normalize(x) #normalizira vektor, dijeli s euklidskom normom
+

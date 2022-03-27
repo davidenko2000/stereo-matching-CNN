@@ -1,6 +1,6 @@
 from torch.utils.data import Dataset
 from torchvision import transforms
-import configuration as config
+import paths
 import utils
 
 class PatchesExtractor(Dataset):
@@ -12,8 +12,8 @@ class PatchesExtractor(Dataset):
 		self.right_images = {}
 
 		for idx in range(paths.TRAIN_START if train else paths.VALID_START, paths.TRAIN_END if train else paths.VALID_END):
-			self.left_images[idx] = utils.get_left_image(idx)
-            		self.right_images[idx] = utils.get_right_image(idx)
+			self.left_images[idx] = utils.get_image(idx, is_left=True)
+            		self.right_images[idx] = utils.get_image(idx, is_left=False)
 
 	#Method that extracts patches from particular image
 	def get_patch_triple(self, patch_idx):
