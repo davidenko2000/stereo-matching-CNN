@@ -1,5 +1,6 @@
 # Bachelor's thesis
-Title: "Correspondence embeddings for stereoscopic reconstruction" <br />
+* Title: "Correspondence embeddings for stereoscopic reconstruction" <br />
+* Supervisor: prof.dr.sc. Siniša Šegvić
 # Original article: <br /> 
 * https://arxiv.org/abs/1510.05970  <br /> 
 # Other sources: <br /> 
