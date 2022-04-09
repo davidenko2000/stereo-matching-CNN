@@ -20,7 +20,7 @@ class PatchesExtractor(Dataset):
 		image_idx, row, col, col_pos, col_neg = self.disparity_data[patch_idx]
 		patch_size = paths.PATCH_SIZE
 		left_patch = self.transform(image[row - patch_size:row + patch_size, col - patch_size:col + patch_size])
-		right_positive_patch = self.transform(image[row - patch_size:row + patch_size, col_pos - patch_size:col_pos + patch_siz>
+		right_positive_patch = self.transform(image[row - patch_size:row + patch_size, col_pos - patch_size:col_pos + patch_size])
                 right_negative_patch = self.transform(image[row - patch_size:row + patch_size, col_neg - patch_size:col_neg + patch_size])
 
 		return left_patch, right_positive_patch, right_negative_patch
