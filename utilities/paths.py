@@ -22,5 +22,6 @@ TRAIN_END = 160
 VALID_START = 160
 VALID_END = 200
 
-TRAIN_DATA = './train/'
-VALID_DATA = '/valid/'
+
+TRAIN_DATA = IMAGES_DIR + 'train/'
+VALID_DATA = IMAGES_DIR + 'valid/'
