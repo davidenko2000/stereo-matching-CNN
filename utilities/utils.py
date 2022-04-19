@@ -76,11 +76,11 @@ def convert_to_grayscale():
             filename = get_filename(idx)
             Image.open(RGB_LEFT_DIR + filename).convert("L").save(GRAY_LEFT_DIR + filename)
             Image.open(RGB_RIGHT_DIR + filename).convert("L").save(GRAY_RIGHT_DIR + filename)
-
 #Method which makes narrays and saves disparity data to file
 def make_disparity_data(train=True):
-      distance = PATCH_SIZE // 2
+      
       def filter(idx):
+              distance = PATCH_SIZE // 2
               disp_image = get_disp_image(idx)
               rows, cols = disp_image.nonzero() #returns non zero pixels (pixels with known disparity)
               rows = rows.astype(np.uint16)
@@ -90,25 +90,25 @@ def make_disparity_data(train=True):
               pos_cols = cols - disparity_values #computes cols with correct disparity
               neg_cols = pos_cols + np.random.choice([-8, -7, -6, -5, -4, 4, 5, 6, 7, 8], size=pos_cols.size).astype(np.uint16) #computes cols with incorrect disparity
 
-              #Calibrations which will be used to discard changes to a pixel which are not allowed
-              calibrate_rows = (rows >= distance) & (rows < disp_image.shape[0] - distance)
-              calibrate_cols = (cols >= distance) & (cols < disp_image.shape[1] - distance)
-              calibrate_pos_cols = (pos_cols >= distance) & (pos_cols < disp_image.shape[1] - distance)
-              calibrate_neg_cols = (neg_cols >= distance) & (neg_cols < disp_image.shape[1] - distance)
-              calibrations = calibrate_rows & calibrate_cols & calibrate_pos_cols & calibrate_neg_cols
+              #CFilters which will be used to discard changes to a pixel which are not allowed
+              filterR = (rows >= distance) & (rows < disp_image.shape[0] - distance)
+              filterC = (cols >= distance) & (cols < disp_image.shape[1] - distance)
+              filterPC = (pos_cols >= distance) & (pos_cols < disp_image.shape[1] - distance)
+              filterNC = (neg_cols >= distance) & (neg_cols < disp_image.shape[1] - distance)
 
+              main_filter = filterR & filterC & filterPC & filterNC
               #Making narray of image indexes and corresponding rows, cols, pos_cols and neg_cols
-              rows = rows[calibrations]
-              cols = cols[calibrations]
-              pos_cols = pos_cols[calibrations]
-              neg_cols = neg_cols[calibrations]
-
-              result = np.empty(len(rows), dtype=np.dtype([('idx', 'uint8'), ('row', 'uint16'), ('col', 'uint16'), ('col_pos', 'uint16'), ('col_neg', 'uint16'), ]))
-              result['idx'] = np.full(rows.shape, idx, dtype=np.uint8)
-              result['row'] = rows
-              result['col'] = cols
-              result['col_pos'] = pos_cols
-              result['col_neg'] = neg_cols
+              newR = rows[main_filter]
+              newC = cols[main_filter]
+              newPC = pos_cols[main_filter]
+              newNC = neg_cols[main_filter]
+              
+              result = np.empty(len(newR), dtype=np.dtype([('idx', 'uint8'), ('row', 'uint16'), ('col', 'uint16'), ('col_pos', 'uint16'), ('col_neg', 'uint16'), ]))
+              result['idx'] = np.full(newR.shape, idx, dtype=np.uint8)
+              result['row'] = newR
+              result['col'] = newC
+              result['col_pos'] = newPC
+              result['col_neg'] = newNC
 
               return result
 
