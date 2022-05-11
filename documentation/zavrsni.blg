@@ -1,0 +1,54 @@
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: zavrsni.aux
+Reallocating 'name_of_file' (item size: 1) to 4 items.
+The style file: fer.bst
+Reallocating 'name_of_file' (item size: 1) to 11 items.
+Database file #1: literatura.bib
+Warning--empty journal in bunjevac2017stereo
+Warning--empty journal in scharszelinski
+Warning--empty year in scharszelinski
+Warning--empty year in scharszelinski
+Warning--empty journal in kovac2015stereo
+You've used 3 entries,
+            2773 wiz_defined-function locations,
+            608 strings with 5387 characters,
+and the built_in function-call counts, 965 in all, are:
+= -- 82
+> -- 30
+< -- 3
++ -- 12
+- -- 9
+* -- 57
+:= -- 161
+add.period$ -- 11
+call.type$ -- 3
+change.case$ -- 12
+chr.to.int$ -- 3
+cite$ -- 11
+duplicate$ -- 57
+empty$ -- 91
+format.name$ -- 12
+if$ -- 191
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 3
+newline$ -- 25
+num.names$ -- 12
+pop$ -- 34
+preamble$ -- 1
+purify$ -- 9
+quote$ -- 0
+skip$ -- 37
+stack$ -- 0
+substring$ -- 6
+swap$ -- 0
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 33
+warning$ -- 5
+while$ -- 9
+width$ -- 0
+write$ -- 44
+(There were 5 warnings)

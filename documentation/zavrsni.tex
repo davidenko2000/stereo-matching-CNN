@@ -1,7 +1,9 @@
-\documentclass[times, utf8, zavrsni]{fer}
+\documentclass[times, utf8, zavrsni, numeric]{fer}
 \usepackage{booktabs}
 \usepackage{pdfpages}
-
+\usepackage{amsmath}
+\usepackage{empheq}
+\usepackage{etoolbox}
 \begin{document}
 
 % TODO: Navedite broj rada.
@@ -45,7 +47,7 @@ Parametre geometrije sustava kamera moguće je  podijeliti na dvije vrste: intri
 \begin{figure}[htb]
 \centering
 \includegraphics[scale=0.7]{img/slika2.png}
-\caption{Primjeri radijalnog izobličenja. Izvor:[1]}
+\caption{Primjeri radijalnog izobličenja. Izvor:\citep{bunjevac2017stereo}}
 \label{fig:Radial}
 \end{figure}\\
 S druge strane ekstrinzični parametri nas dovode do nužnih transformacija kojima se slike dovode u istu ravninu projekcije te se time postiže da su pikseli duž horizontalnog pravca jedne slike na istoj visini na drugoj slici. Taj pravac je već spomenut, riječ je o epipolarnoj liniji. Ovakvim transformacijama uvelike se olakšava pronalaženje korespodentnih točaka koje u ovom slučaju treba tražiti samo duž jedne linije, epipolarne linije. Problem je sveden na jednu dimenziju. Kalibracijom se riješava problem nesavršenosti leća, odnosno problem izobličenja slika.\\
@@ -85,7 +87,7 @@ Na slici 2.4. je vidljivo da su epipolarne linije paralelne, te im je $y$-koordi
 \\\\
 \section{Algoritam stereoskopske rekonstrukcije}
 Postupak stereoskopske korespodencije je zapravo postupak pronalaženja istih piksela u međusobno konkurentnim kamerama koji odgovaraju istoj točki u trodimenzionalnom prostoru. Postoje dvije vrste korespodencija, \textit{rijetke} i \textit{guste}. Razlika je u tome što rijetke ne izračunavaju disparitete za sve piksele, dok guste to rade. Guste korespodencije omogućene su današnjom snagom računala, te se rijetke više toliko ne koriste. Postupak guste korespodencije je tim teži što se prilikom izračuna susreće s nekim anomalijama u slikama, primjerice područjima bez teksture, reflesivnim podlogama na kojima se svjetlost drugačije lomi i odbija, te točkama koje se iz jedne kamere vide, a iz druge ne (\textit{stereoskopska sjena}).\\
-Dolazimo do stereo algoritama, svaki od njih moguće je opisati u četiri koraka ([2],[3]):
+Dolazimo do stereo algoritama, svaki od njih moguće je opisati u četiri koraka (\citep{scharszelinski}, \citep{kovac2015stereo}):
 \begin{enumerate}
 \item izračunavanje razlike između dvaju slikovnih okana, odnosno izračun podatkovnih cijena po prije definiranoj mjeri razlike
 \item prikupljanje podatkovnih cijena za disparitete koji se razmatraju
@@ -106,10 +108,125 @@ Drugi od koraka generičkog stereo algoritma je prikupljanje podatkovni cijena, 
 Treći korak algoritma je izračun mape dispariteta. Nakon što su izračunate podatkovne cijene za razmatran skup dispariteta, treba odabrati metodu za izračun mape dispariteta. U praksi postoje \textit{lokalne} i \textit{globalne}. Lokalne metode prikupljaju cijene nad ograničenim područjem unutar same mape dispariteta, odnosno traže na ograničenom području oko referentne točke. Područje moje biti 2D ili 3D, te se prikupljanje može primjerice izvesti konvolucijom. S druge strane, globalne metode  preskaču korak prikupljanja podatkovnih cijena, te odmah nakon izračuna podatkovnih cijena vrše optimizaciju. Globalne metode minimiziraju kriterij nad cijelom slikom. Odnos između ovi metoda može se svesti na to da su lokalne brže, no globalne daju puno glađe mape dispariteta, što ih čini kvalitetnijima.\\
 Zadnji korak koji je naveden je zaglađivanje mapa dispariteta. Ovaj korak je opcionalan i neke metode ga koriste. Glavni cilj ovog koraka je uklanjanje šuma koji je nastao generiranjem mape. 
 \chapter{Duboko učenje}
+Duboko učenje grana strojnog učenja koje se ubrzano razvija. U teoriji se dubokim učenjem smatra proces učenja neuronske mreže s 3 ili više slojeva, sve što je manje od toga naziva se \textit{plitkim} modelima. Cilj takvih neuronskih mreža je simulirati ponašanje ljudskog mozga omogućujući učenje na velikim skupovima podataka. Zahvaljujući razvoju grafičkih kartica, omogućen je ubrzan razvoj dubokog učenja.
+
+U sljedećim odjeljcima bit će predstavljeni osnovni pojmovi i koncepti korišteni prilikom oblikovanja modela i procesa učenja.
 \section{Osnovni pojmovi u dubokom učenju}
 \subsection{Perceptron}
+U ranim počecima duboko učenja došlo se do ideje potpuno povezanih modela. Jedan od takvih modela je višeslojni perceptron. Iako je danas napuštena ideja potpuno povezanih modela, zanimljivo je pogledati koje mane novi modeli imaju za ispraviti.
+\begin{figure}[htb]
+\centering
+\includegraphics[width = 14.5cm]{img/slika5.png}
+\caption{Jednostavni perceptron}
+\label{fig:Perceptron}
+\end{figure}
+\newpage
+Perceptron je prvi definirao Frank Rosenblatt. Na slici 3.1. prikazan je jednostavni perceptron. Perceptron ima više binarnih ulaza koji su označeni s $x_{1}$, $x_{2}$ i $x_{3}$, te proizvodi binarni izlaz. Rosenblatt je, kako bi odredio izlaz, definirao težine (u ovom slučaju $w_{1}$, $w_{2}$ i $w_{3}$). Težinama se mogu opisati doprinosi jednog neuorona na drugi, odnosno koliko jedan utječe na drugog. Ovime je izlaz neurona definiran sumom umnoška težina i binarnih ulaza te praga s kojim s uspoređuje:
+\begin{subequations}
+\begin{empheq}[left=\ \empheqlbrace]{align}
+0, {\sum_{k=1}^{n}} w_kx_k \le prag \\
+1,  {\sum_{k=1}^{n}} w_kx_k > {prag}
+\end{empheq}
+\label{eq:Perceptron}
+\end{subequations}
+Jedan sloj neuronske mreže čine perceptroni koji se nalaze u istom stupcu. Izlaz svakog perceptrona  izračunava se tako koristeći izlaze prethodnog sloja i definirane težine za svaki od ulaznih perceptrona. Gornju formulu moguće je transformirati tako što se prag uvede nova varijabla $b=-prag$, koja označava pristranost (engl. \textit{bias}). Pristranost u kontekstu duboko učenja je moguće definirati koliko je lako natjerati neuron  da kao izlaz izbaci 1. Ukoliko je pristranost vrlo velik broj, izlaz e u veini slučajeva biti 1, dok je za vrlo negativan broj suprotna situacija. Izmijenjena formula glasi:
+\begin{subequations}
+\begin{empheq}[left=\ \empheqlbrace]{align}
+0, {\sum_{k=1}^{n}} w_kx_k  + b\le 0 \\
+1,  {\sum_{k=1}^{n}} w_kx_k + b > 0
+\end{empheq}
+\label{eq:Perceptron}
+\end{subequations}
+Linearnu funkciju koju smo izveli možemo predstaviti i u matričnom obliku:
+\begin{equation}
+f=w^{T}x+b
+\label{eq:Linear}
+\end{equation}
 \subsection{Prijenosne funkcije}
+Ukoliko bi koristili linearnu funkciju izlaza iz prijašnjeg odjeljka, mala promjena u ulazu bi na izlazu generirala veliku promjenu. Stoga se uvode prijenosne, odnosno aktivacijske funkcije jer odlučuju hoće li neki neuron biti aktivan ili ne. Primarni cilj prijenosnih funkcija je omogućiti da se primijete sitne promjene na ulazu. Aktivaciju neurona možemo predstaviti sljedećom formulom:
+\begin{equation}
+a^k=\sigma_{k}(W^T_{k}a^{k-1}+b)
+\label{eq:Aktivacija}
+\end{equation}
+gdje $a^k$ označava aktivaciju neurona trenutnog sloja, $a^{k-1}$ aktivaciju neurona prijašnjeg sloja, dok $\sigma$ označava aktivacijsku funkciju.
+
+Prva funkcija koja će biti objašnjena je sigmoidalna funkcija čiji izraz je dan u nastavku:
+\begin{equation}
+\sigma(x)=\frac{1}{1 + e^{-x}}
+\label{eq:Aktivacija}
+\end{equation}
+Glavno obilježje sigmoidalne funkcije je to što je njezina kodomena na skupu od 0 do 1, te ju to čini primjenjivom u regresijskim i klasifikacijskim problemima. Veliki pozitivni brojevi poprimit će vrijednost 1, dok će jako negativni brojevi poprimiti vrijednost 0. Također, prednost je što je derivabilna, pa omogućuje učenje u kojem se koristi gradijentni spust. Glavni nedostatak zbog kojeg se sve manje koristi je problem nestanja gradijenata (engl. \textit{vanishing gradient problem}) koji govori da gradijenti postaju toliko mali da ne nose nikakvu informaciju koja bi se mogla iskoristiti za učenje. Prikaz grafa funkcije je na slici 3.2.\\
+\begin{figure}[htb]
+\centering
+\includegraphics[scale=0.6]{img/slika6.png}
+\caption{Graf sigmoidalne funkcije}
+\label{fig:Perceptron}
+\end{figure}
+\linebreak
+Funkcija koja je usko vezana uz sigmoidalnu je \textit{tangens hiperbolni}. Kodomena ove funkcije je na intervalu od -1 do 1. Problem nestajanja gradijenata je isto tako prisutan. Kako je bliska sigmoidalnoj, možemo uspostaviti odnos između njih koji je oblika:
+\begin{equation}
+\tanh(x) = 2\sigma(2x)-1
+\label{eq:Aktivacija}
+\end{equation}
+\begin{figure}[htb]
+\centering
+\includegraphics[scale=0.6]{img/slika7.png}
+\caption{Graf funkcije tangensa hiperbolnog}
+\label{fig:Perceptron}
+\end{figure}\\
+\\\\\\\\
+Sljedeća prijenosna funkcija koja se koristi je zglobnica (engl. \textit{ReLU - rectified linear unit}). Ova prijenosna funkcija propušta pozitivne vrijednosti, dok negativne vrijednosti ne propušta. Glavna prednost ove funkcije što je računski izuzetno jeftina, dok joj je nedostatak što za negativne vrijednosti uvijek daje 0. Izraz koji ju opisuje je oblika:
+\begin{equation}
+f(x)=max(0,x)
+\label{eq:Aktivacija}
+\end{equation}
+\begin{figure}[htb]
+\centering
+\includegraphics[scale=0.6]{img/slika8.png}
+\caption{Graf funkcije ReLU}
+\label{fig:Perceptron}
+\end{figure}
+\linebreak
+\\\\
+Moguće je napraviti modifikaciju zglobnice tako da za negativne vrijednosti daje vrlo male vrijednosti, te se takva prijenosna funkcija naziva propusnom zglobnicom (engl. \textit{LReLU - leaky rectified linear unit}). U nastavku slijedi izraz koji ju opisuje:
+\begin{subequations}
+\begin{empheq}[left={f(x)=}\ \empheqlbrace]{align}
+x, x > 0 \\
+\alpha x,  x \le 0
+\end{empheq}
+\label{eq:Perceptron}
+\end{subequations}
+gdje je $\alpha$ parametar, odnosno u praksi vrlo mali pozitivan broj. Na slici 3.5. je vidljivo da negativne vrijednosti propušta uz prigušenje, dok na slici 3.4. obična zglobnica ne propušta.
+\begin{figure}[htb]
+\centering
+\includegraphics[scale=0.6]{img/slika9.png}
+\caption{Graf funkcije LReLU}
+\label{fig:Perceptron}
+\end{figure}
 \subsection{Konvolucijski slojevi}
+Konvolucijski slojevi osnovni su gradivni element konvolucijskih neuronskih mreža. Kako je u radu riječ o slikama, bit će predstavljena $2D$ konvolucija, operacija filtriranja. Uloga filtriranja je uočavanje i učenje uzoraka koji se nalaze na slikama. 
+Konvolucijski slojevi čine konvolucije ulaza s različitim filtrima, drugi naziv je jezgra (engl. \textit{kernel}).Izlaz iz 2D konvolucije je aktivacijska mapa, odnosno mapa značajki, dok je izlaz cijelog konvolucijskog sloja više mapa značajki. Kako dubina tijekom prolaska kroz mrežu raste, identificiraju se sve specifičniji uzorci. Tijekom unaprijednog prolaza, jezgra se provlači po matričnoj reprezentaciji slike i računa se skalarni umnožak između jezgre i ulaza na svakom položaju. 
+\\\\\\
+\begin{equation}
+\begin{bmatrix}
+x_{11} & x_{12} & x_{13} \\
+x_{21} & x_{22} & x_{23} \\ 
+x_{31} & x_{32} & x_{33}
+\end{bmatrix}*\begin{bmatrix}
+w_{11} & w_{12} \\
+w_{21} & w_{22}
+\end{bmatrix}=
+\begin{bmatrix}
+x_{11}w_{11} + x_{12}w_{12} & x_{12}w_{11} + x_{13}w_{12}\\+ x_{21}w_{21} + x_{22}w_{22} &   + x_{22}w_{21} + x_{23}w_{22}\\ 
+\\
+x_{21}w_{11} + x_{22}w_{12} & x_{22}w_{11} + x_{23}w_{12}\\+ x_{31}w_{21} + x_{32}w_{22} &  +x_{32}w_{21} + x_{33}w_{22}
+\end{bmatrix}
+\label{eq:Aktivacija}
+\end{equation}
+\linebreak
+Jednadžbom 3.9 prikazana je matrična reprezentacija dimenzija $3x3$, dok je jezgra dimenzije $2x2$. Jezgra se provlači po ulaznoj matrici (računa se skalarni umnožak) i nastaje izlazna mapa značajki dimenzija $2x2$. Iz ovog je vidljivo da se konvolucijom smanjuje dimenzija ulaza.
+
+Ukoliko želimo zadržati rezoluciju slike nakon konvolucijskog sloja, potrebno je uvesti nadopunjavanje (engl. \textit{padding}). Najčešće je korištena metoda popunjavanja nulama. Još jedan od hiperparametara je korak (engl. \textit{stride}). Korak govori o tome koliko se jezgra pomiče u vertikalnom i horizontalnom smjeru. U jednadžbi 3.9 je korišten korak 1.
 \subsection{Optimizacija}
 \subsection{Regularizacija}
 \section{Učenje dubokih modela}
@@ -127,8 +244,9 @@ Zadnji korak koji je naveden je zaglađivanje mapa dispariteta. Ovaj korak je op
 \chapter{Zaključak}
 Zaključak.
 
-\bibliography{literatura}
 \bibliographystyle{fer}
+\bibliography{literatura}
+
 
 \begin{sazetak}
 Sažetak na hrvatskom jeziku.

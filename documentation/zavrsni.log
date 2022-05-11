@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.6) (preloaded format=pdflatex 2021.10.28)  9 MAY 2022 00:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.6) (preloaded format=pdflatex 2021.10.28)  10 MAY 2022 12:50
 entering extended mode
 **./zavrsni.tex
 (zavrsni.tex
@@ -311,7 +311,48 @@ File: pppdftex.def 2022/01/29 v0.5u Pdfpages driver for pdfTeX (AM)
 \c@AM@survey=\count288
 \AM@templatesizebox=\box54
 )
-LaTeX Font Info:    Trying to load font information for T1+ptm on input line 5.
+(/home/dua/.miktex/texmfs/install/tex/latex/mathtools/empheq.sty
+Package: empheq 2017/03/31 v2.15 Emphasizing equations
+
+(/home/dua/.miktex/texmfs/install/tex/latex/mathtools/mhsetup.sty
+Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
+)
+(/home/dua/.miktex/texmfs/install/tex/latex/mathtools/mathtools.sty
+Package: mathtools 2022/02/07 v1.28a mathematical typesetting tools
+\g_MT_multlinerow_int=\count289
+\l_MT_multwidth_dim=\dimen189
+\origjot=\skip58
+\l_MT_shortvdotswithinadjustabove_dim=\dimen190
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen191
+\l_MT_above_intertext_sep=\dimen192
+\l_MT_below_intertext_sep=\dimen193
+\l_MT_above_shortintertext_sep=\dimen194
+\l_MT_below_shortintertext_sep=\dimen195
+\xmathstrut@box=\box55
+\xmathstrut@dim=\dimen196
+)
+\l_EQ_equationtype_int=\count290
+\l_EQ_alignmentmode_int=\count291
+\l_EQ_totalwidth_dim=\dimen197
+\l_EQ_displaywidth_dim=\dimen198
+\l_EQ_temp_linewidth_dim=\dimen199
+\l_EQ_linewidth_dim=\dimen256
+\EmphEqdelimitershortfall=\dimen257
+\EmphEqdelimiterfactor=\count292
+\g_EQ_toptag_height_dim=\dimen258
+\g_EQ_bottomtag_depth_dim=\dimen259
+\g_EQ_toprow_height_dim=\dimen260
+\g_EQ_bottomrow_depth_dim=\dimen261
+\g_EQ_widesttag_dim=\dimen262
+\EQ_mathdisplay_box=\box56
+\EQ_tag_box=\box57
+\g_EQ_temprow_int=\count293
+)
+(/home/dua/.miktex/texmfs/install/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count294
+)
+LaTeX Font Info:    Trying to load font information for T1+ptm on input line 7.
 
 
 (/home/dua/.miktex/texmfs/install/tex/latex/psnfss/t1ptm.fd
@@ -319,30 +360,60 @@ File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 )
 (/home/dua/.miktex/texmfs/install/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2021-10-18 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count289
-\l__pdf_internal_box=\box55
+\l__color_backend_stack_int=\count295
+\l__pdf_internal_box=\box58
 )
 (zavrsni.aux
 
 LaTeX Warning: Label `fig:Radial' multiply defined.
 
+
+LaTeX Warning: Label `eq:Perceptron' multiply defined.
+
+
+LaTeX Warning: Label `eq:Aktivacija' multiply defined.
+
+
+LaTeX Warning: Label `fig:Perceptron' multiply defined.
+
+
+LaTeX Warning: Label `eq:Aktivacija' multiply defined.
+
+
+LaTeX Warning: Label `fig:Perceptron' multiply defined.
+
+
+LaTeX Warning: Label `eq:Aktivacija' multiply defined.
+
+
+LaTeX Warning: Label `fig:Perceptron' multiply defined.
+
+
+LaTeX Warning: Label `eq:Perceptron' multiply defined.
+
+
+LaTeX Warning: Label `fig:Perceptron' multiply defined.
+
+
+LaTeX Warning: Label `eq:Aktivacija' multiply defined.
+
 )
 \openout1 = `zavrsni.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 7.
+LaTeX Font Info:    ... okay on input line 7.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -380,16 +451,16 @@ LaTeX Font Info:    ... okay on input line 5.
 
 (/home/dua/.miktex/texmfs/install/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count290
-\scratchdimen=\dimen189
-\scratchbox=\box56
-\nofMPsegments=\count291
-\nofMParguments=\count292
+\scratchcounter=\count296
+\scratchdimen=\dimen263
+\scratchbox=\box59
+\nofMPsegments=\count297
+\nofMParguments=\count298
 \everyMPshowfont=\toks29
-\MPscratchCnt=\count293
-\MPscratchDim=\dimen190
-\MPnumerator=\count294
-\makeMPintoPDFobject=\count295
+\MPscratchCnt=\count299
+\MPscratchDim=\dimen264
+\MPnumerator=\count300
+\makeMPintoPDFobject=\count301
 \everyMPtoPDFconversion=\toks30
 ) (/home/dua/.miktex/texmfs/install/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -410,19 +481,20 @@ Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
-LaTeX Font Info:    Trying to load font information for T1+phv on input line 16
+\Hy@linkcounter=\count302
+LaTeX Font Info:    Trying to load font information for T1+phv on input line 18
 .
 
 (/home/dua/.miktex/texmfs/install/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2020/03/25 scalable font definitions for T1/phv.
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 16.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 18.
 
 
 (/home/dua/.miktex/texmfs/install/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 16.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 18.
 
 
 (/home/dua/.miktex/texmfs/install/tex/latex/amsfonts/umsb.fd
@@ -433,32 +505,32 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 <izvornik.pdf, id=7, 597.23125pt x 845.1575pt>
 File: izvornik.pdf Graphic file (type pdf)
 <use izvornik.pdf>
-Package pdftex.def Info: izvornik.pdf  used on input line 18.
+Package pdftex.def Info: izvornik.pdf  used on input line 20.
 (pdftex.def)             Requested size: 597.22978pt x 845.15544pt.
 File: izvornik.pdf Graphic file (type pdf)
 <use izvornik.pdf>
-Package pdftex.def Info: izvornik.pdf  used on input line 18.
+Package pdftex.def Info: izvornik.pdf  used on input line 20.
 (pdftex.def)             Requested size: 597.22978pt x 845.15544pt.
 <izvornik.pdf, id=10, page=1, 597.23125pt x 845.1575pt>
 File: izvornik.pdf Graphic file (type pdf)
 <use izvornik.pdf, page 1>
-Package pdftex.def Info: izvornik.pdf , page1 used on input line 18.
+Package pdftex.def Info: izvornik.pdf , page1 used on input line 20.
 (pdftex.def)             Requested size: 597.22978pt x 845.15544pt.
 File: izvornik.pdf Graphic file (type pdf)
 <use izvornik.pdf, page 1>
-Package pdftex.def Info: izvornik.pdf , page1 used on input line 18.
+Package pdftex.def Info: izvornik.pdf , page1 used on input line 20.
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 File: izvornik.pdf Graphic file (type pdf)
 <use izvornik.pdf, page 1>
-Package pdftex.def Info: izvornik.pdf , page1 used on input line 18.
+Package pdftex.def Info: izvornik.pdf , page1 used on input line 20.
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 File: izvornik.pdf Graphic file (type pdf)
 <use izvornik.pdf, page 1>
-Package pdftex.def Info: izvornik.pdf , page1 used on input line 18.
+Package pdftex.def Info: izvornik.pdf , page1 used on input line 20.
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
 File: izvornik.pdf Graphic file (type pdf)
 <use izvornik.pdf, page 1>
-Package pdftex.def Info: izvornik.pdf , page1 used on input line 18.
+Package pdftex.def Info: izvornik.pdf , page1 used on input line 20.
 (pdftex.def)             Requested size: 597.25711pt x 845.19412pt.
  [1 <./izvornik.pdf>] [4]
 (zavrsni.toc [5
@@ -470,48 +542,48 @@ Package pdftex.def Info: izvornik.pdf , page1 used on input line 18.
  [6]
 Poglavlje 1.
 
-Overfull \hbox (7.62279pt too wide) in paragraph at lines 26--27
+Overfull \hbox (7.62279pt too wide) in paragraph at lines 28--29
 \T1/ptm/m/n/12 Ra£unalni vid kao jedna od temeljnih grana umjetne inteligencije
  omogu¢ava ra£unalima
  []
 
 
-Overfull \hbox (13.81491pt too wide) in paragraph at lines 26--27
+Overfull \hbox (13.81491pt too wide) in paragraph at lines 28--29
 \T1/ptm/m/n/12 klasi£ne metode za odreživanje korespodencijskih metrika, no poj
 avom snaºnijih ra£unala
  []
 
 
-Overfull \hbox (2.40298pt too wide) in paragraph at lines 26--27
+Overfull \hbox (2.40298pt too wide) in paragraph at lines 28--29
 \T1/ptm/m/n/12 iskori²teno je duboko u£enje kao alat kojim je mogu¢e korespoden
 cijske metrike nau£iti
  []
 
 
-Overfull \hbox (23.3549pt too wide) in paragraph at lines 26--27
+Overfull \hbox (23.3549pt too wide) in paragraph at lines 28--29
 \T1/ptm/m/n/12 na stvarnim podacima. Za potrebe metoda temeljenih na ugraživanj
 u u visokodimenzionalni
  []
 
 
-Overfull \hbox (15.75883pt too wide) in paragraph at lines 26--27
+Overfull \hbox (15.75883pt too wide) in paragraph at lines 28--29
 \T1/ptm/m/n/12 prostor potrebne su rektificirane stereoskopske slike s poznatom
  dubinskom informacijom. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 26--27
+Underfull \hbox (badness 10000) in paragraph at lines 28--29
 
  []
 
 
-Overfull \hbox (18.07133pt too wide) in paragraph at lines 28--29
+Overfull \hbox (18.07133pt too wide) in paragraph at lines 30--31
 []\T1/ptm/m/n/12 U okviru ovog radu opisana je geometrija stereoskopskog para, 
 kalibracija, rektifikacija
  []
 
 
-Overfull \hbox (7.57474pt too wide) in paragraph at lines 28--29
+Overfull \hbox (7.57474pt too wide) in paragraph at lines 30--31
 \T1/ptm/m/n/12 i algoritmi kori²teni za ostvarivanje korespodencije. Zatim defi
 nirani su osnovni pojmovi
  []
@@ -523,10 +595,10 @@ Poglavlje 2.
 <img/slika1.png, id=44, 601.24625pt x 371.3875pt>
 File: img/slika1.png Graphic file (type png)
 <use img/slika1.png>
-Package pdftex.def Info: img/slika1.png  used on input line 35.
+Package pdftex.def Info: img/slika1.png  used on input line 37.
 (pdftex.def)             Requested size: 276.57661pt x 170.84032pt.
 
-Overfull \hbox (0.42255pt too wide) in paragraph at lines 32--42
+Overfull \hbox (0.42255pt too wide) in paragraph at lines 34--44
 \T1/ptm/m/n/12 Epipolarna geometrija je geometrija koja ima primjenu u stereosk
 opskoj rekonstrukciji,
  []
@@ -537,60 +609,60 @@ opskoj rekonstrukciji,
 <img/slika2.png, id=52, 596.2275pt x 212.795pt>
 File: img/slika2.png Graphic file (type png)
 <use img/slika2.png>
-Package pdftex.def Info: img/slika2.png  used on input line 47.
+Package pdftex.def Info: img/slika2.png  used on input line 49.
 (pdftex.def)             Requested size: 417.3564pt x 148.95547pt.
 
-Overfull \hbox (4.79143pt too wide) in paragraph at lines 47--48
+Overfull \hbox (4.79143pt too wide) in paragraph at lines 49--50
  [][] 
  []
 
 
-Overfull \hbox (6.56653pt too wide) in paragraph at lines 44--53
+Overfull \hbox (6.56653pt too wide) in paragraph at lines 46--55
 \T1/ptm/m/n/12 ekstrinzi£ni. Ekstrinzi£ni parametri su oni koji opisuju odnos s
 vojstva koja su zajedni£ka
  []
 
 
-Overfull \hbox (6.5431pt too wide) in paragraph at lines 44--53
+Overfull \hbox (6.5431pt too wide) in paragraph at lines 46--55
 \T1/ptm/m/n/12 korespodentnih to£aka koje u ovom slu£aju treba traºiti samo duº
  jedne linije, epipolarne
  []
 
 
-Overfull \hbox (28.56209pt too wide) in paragraph at lines 44--53
+Overfull \hbox (28.56209pt too wide) in paragraph at lines 46--55
 \T1/ptm/m/n/12 linije. Problem je sveden na jednu dimenziju. Kalibracijom se ri
 je²ava problem nesavr²enosti
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 44--53
+Underfull \hbox (badness 10000) in paragraph at lines 46--55
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 44--53
+Underfull \hbox (badness 10000) in paragraph at lines 46--55
 
  []
 
 <img/slika3.png, id=53, 1119.18124pt x 167.62625pt>
 File: img/slika3.png Graphic file (type png)
 <use img/slika3.png>
-Package pdftex.def Info: img/slika3.png  used on input line 58.
+Package pdftex.def Info: img/slika3.png  used on input line 60.
 (pdftex.def)             Requested size: 412.56496pt x 61.79309pt.
 [3 <./img/slika2.png>]
-Overfull \hbox (25.56172pt too wide) in paragraph at lines 66--67
+Overfull \hbox (25.56172pt too wide) in paragraph at lines 68--69
 \T1/ptm/m/n/12 Prija²njim postupcima kalibracije i rektifikacije omogu¢en je po
 stupak ra£unanja dispariteta,
  []
 
 
-Overfull \hbox (9.66325pt too wide) in paragraph at lines 66--67
+Overfull \hbox (9.66325pt too wide) in paragraph at lines 68--69
 \T1/ptm/m/n/12 odnosno postupak ra£unanja koji za svaki piksel koji je nastao l
 ijevom kamerom odrežuje
  []
 
 
-Overfull \hbox (3.3101pt too wide) in paragraph at lines 70--73
+Overfull \hbox (3.3101pt too wide) in paragraph at lines 72--75
 \T1/ptm/m/n/12 gdje su $\OML/cmm/m/it/12 I[]$ \T1/ptm/m/n/12 i $\OML/cmm/m/it/1
 2 I[]$ \T1/ptm/m/n/12 slike nastale lijevom, odnosno desnom kamerom, respektivn
 o. Ureženim
@@ -600,122 +672,249 @@ o. Ureženim
 <img/slika4.png, id=63, 836.12375pt x 521.95pt>
 File: img/slika4.png Graphic file (type png)
 <use img/slika4.png>
-Package pdftex.def Info: img/slika4.png  used on input line 81.
+Package pdftex.def Info: img/slika4.png  used on input line 83.
 (pdftex.def)             Requested size: 412.56496pt x 257.5497pt.
 
-Overfull \hbox (6.08727pt too wide) in paragraph at lines 76--86
+Overfull \hbox (6.08727pt too wide) in paragraph at lines 78--88
 \T1/ptm/m/n/12 fokalna udaljenost kamere. Iz jednadºbe 2.2 je vidljiva obrnuta 
 proporcionalnost izmežu
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 76--86
+Underfull \hbox (badness 10000) in paragraph at lines 78--88
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 76--86
+Underfull \hbox (badness 10000) in paragraph at lines 78--88
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 76--86
+Underfull \hbox (badness 10000) in paragraph at lines 78--88
 
  []
 
 [5 <./img/slika4.png>]
-Overfull \hbox (3.20767pt too wide) in paragraph at lines 87--90
+Overfull \hbox (3.20767pt too wide) in paragraph at lines 89--92
 \T1/ptm/m/n/12 u mežusobno konkurentnim kamerama koji odgovaraju istoj to£ki u 
 trodimenzionalnom
  []
 
 
-Overfull \hbox (9.0748pt too wide) in paragraph at lines 87--90
+Overfull \hbox (9.0748pt too wide) in paragraph at lines 89--92
 \T1/ptm/m/n/12 rijetke ne izra£unavaju disparitete za sve piksele, dok guste to
  rade. Guste korespodencije
  []
 
 
-Overfull \hbox (2.39102pt too wide) in paragraph at lines 87--90
+Overfull \hbox (2.39102pt too wide) in paragraph at lines 89--92
 \T1/ptm/m/n/12 omogu¢ene su dana²njom snagom ra£unala, te se rijetke vi²e tolik
 o ne koriste. Postupak
  []
 
 
-Overfull \hbox (7.22699pt too wide) in paragraph at lines 90--91
+Overfull \hbox (7.22699pt too wide) in paragraph at lines 92--93
 []\T1/ptm/m/n/12 izra£unavanje razlike izmežu dvaju slikovnih okana, odnosno iz
 ra£un podatkovnih
  []
 
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 9
-8.
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 1
+00.
 (/home/dua/.miktex/texmfs/install/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 ) [6]
-Overfull \hbox (3.32643pt too wide) in paragraph at lines 105--108
+Overfull \hbox (3.32643pt too wide) in paragraph at lines 107--110
 \T1/ptm/m/n/12 U praksi postoje \T1/ptm/m/it/12 lokalne \T1/ptm/m/n/12 i \T1/pt
 m/m/it/12 globalne\T1/ptm/m/n/12 . Lokalne metode prikupljaju cijene nad ograni
 £enim
  []
 
 
-Overfull \hbox (0.55533pt too wide) in paragraph at lines 105--108
+Overfull \hbox (0.55533pt too wide) in paragraph at lines 107--110
 \T1/ptm/m/n/12 Zadnji korak koji je naveden je zaglaživanje mapa dispariteta. O
 vaj korak je opcionalan
  []
 
 [7]
 Poglavlje 3.
+<img/slika5.png, id=73, 570.13pt x 225.84375pt>
+File: img/slika5.png Graphic file (type png)
+<use img/slika5.png>
+Package pdftex.def Info: img/slika5.png  used on input line 119.
+(pdftex.def)             Requested size: 412.56496pt x 163.42754pt.
 [8
 
-]
+ <./img/slika5.png>] [9]
+<img/slika6.png, id=83, 506.89375pt x 307.1475pt>
+File: img/slika6.png Graphic file (type png)
+<use img/slika6.png>
+Package pdftex.def Info: img/slika6.png  used on input line 161.
+(pdftex.def)             Requested size: 304.1386pt x 184.28992pt.
+
+Overfull \hbox (3.79518pt too wide) in paragraph at lines 157--167
+\T1/ptm/m/n/12 nestanja gradijenata (engl. \T1/ptm/m/it/12 vanishing gradient p
+roblem\T1/ptm/m/n/12 ) koji govori da gradijenti postaju
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 157--167
+
+ []
+
+<img/slika7.png, id=84, 556.0775pt x 308.15125pt>
+File: img/slika7.png Graphic file (type png)
+<use img/slika7.png>
+Package pdftex.def Info: img/slika7.png  used on input line 173.
+(pdftex.def)             Requested size: 333.64908pt x 184.89217pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 170--179
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 170--179
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 170--179
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 170--179
+
+ []
+
+[10 <./img/slika6.png>]
+<img/slika8.png, id=88, 480.79625pt x 332.24126pt>
+File: img/slika8.png Graphic file (type png)
+<use img/slika8.png>
+Package pdftex.def Info: img/slika8.png  used on input line 185.
+(pdftex.def)             Requested size: 288.47997pt x 199.34628pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 182--196
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 182--196
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 182--196
+
+ []
+
+[11 <./img/slika7.png> <./img/slika8.png>]
+<img/slika9.png, id=92, 494.84875pt x 331.2375pt>
+File: img/slika9.png Graphic file (type png)
+<use img/slika9.png>
+Package pdftex.def Info: img/slika9.png  used on input line 202.
+(pdftex.def)             Requested size: 296.91154pt x 198.74402pt.
+
+Overfull \hbox (0.3721pt too wide) in paragraph at lines 207--210
+\T1/ptm/m/n/12 Kako je u radu rije£ o slikama, bit ¢e predstavljena $\OT1/cmr/m
+/n/12 2\OML/cmm/m/it/12 D$ \T1/ptm/m/n/12 konvolucija, operacija filtriranja.
+ []
+
+
+Overfull \hbox (14.83371pt too wide) in paragraph at lines 207--210
+\T1/ptm/m/n/12 slojevi £ine konvolucije ulaza s razli£itim filtrima, drugi nazi
+v je jezgra (engl. \T1/ptm/m/it/12 kernel\T1/ptm/m/n/12 ).Izlaz
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 207--210
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 207--210
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 207--210
+
+ []
+
+[12 <./img/slika9.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 225--228
+
+ []
+
+[13]
 Poglavlje 4.
-[9
+[14
 
 ]
 Poglavlje 5.
-[10
+[15
 
 ]
 Poglavlje 6.
-[11
+[16
 
 ]
 Poglavlje 7.
-[12
+[17
 
 ]
 Poglavlje 8.
-No file zavrsni.bbl.
-[13
+(zavrsni.bbl [18
 
-] [14] (zavrsni.aux)
+]
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 13
+.
+ (/home/dua/.miktex/texmfs/install/tex/latex/psnfss/t1pcr.fd
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
+)
+Underfull \hbox (badness 10000) in paragraph at lines 9--14
+[]\T1/ptm/m/n/12 Nikola Bunjevac.  Gusta stereoskopska rekonstrukcija polugloba
+lnim
+ []
+
+
+Underfull \hbox (badness 2181) in paragraph at lines 16--20
+\T1/ptm/m/n/12 two-frame stereo correspondence algorithms.  URL $\T1/pcr/m/n/12
+ https : / / vision .
+ []
+
+) [19
+
+] [20] (zavrsni.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 7850 strings out of 480844
- 118639 string characters out of 2903846
- 438086 words of memory out of 3000000
- 25348 multiletter control sequences out of 15000+600000
- 456919 words of font info for 93 fonts, out of 8000000 for 9000
+ 9008 strings out of 480844
+ 137986 string characters out of 2903846
+ 472557 words of memory out of 3000000
+ 26478 multiletter control sequences out of 15000+600000
+ 457540 words of font info for 95 fonts, out of 8000000 for 9000
  0 hyphenation exceptions out of 8191
  72i,17n,80p,864b,434s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/home/dua/.miktex/texmfs/install/fonts/enc/dvips/base/8r.enc}</home/dua/.mik
-tex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pfb></home/dua/.miktex
-/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi12.pfb></home/dua/.miktex/te
-xmfs/install/fonts/type1/public/amsfonts/cm/cmmi8.pfb></home/dua/.miktex/texmfs
-/install/fonts/type1/public/amsfonts/cm/cmr12.pfb></home/dua/.miktex/texmfs/ins
-tall/fonts/type1/public/amsfonts/cm/cmsy10.pfb></home/dua/.miktex/texmfs/instal
-l/fonts/type1/public/amsfonts/cm/cmsy8.pfb></home/dua/.miktex/texmfs/install/fo
-nts/type1/urw/helvetic/uhvb8a.pfb></home/dua/.miktex/texmfs/install/fonts/type1
-/urw/helvetic/uhvr8a.pfb></home/dua/.miktex/texmfs/install/fonts/type1/urw/time
-s/utmb8a.pfb></home/dua/.miktex/texmfs/install/fonts/type1/urw/times/utmr8a.pfb
-></home/dua/.miktex/texmfs/install/fonts/type1/urw/times/utmri8a.pfb>
-Output written on zavrsni.pdf (19 pages, 679117 bytes).
+tex/texmfs/install/fonts/type1/public/amsfonts/cm/cmex10.pfb></home/dua/.miktex
+/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pfb></home/dua/.miktex/te
+xmfs/install/fonts/type1/public/amsfonts/cm/cmmi12.pfb></home/dua/.miktex/texmf
+s/install/fonts/type1/public/amsfonts/cm/cmmi8.pfb></home/dua/.miktex/texmfs/in
+stall/fonts/type1/public/amsfonts/cm/cmr12.pfb></home/dua/.miktex/texmfs/instal
+l/fonts/type1/public/amsfonts/cm/cmr8.pfb></home/dua/.miktex/texmfs/install/fon
+ts/type1/public/amsfonts/cm/cmsy10.pfb></home/dua/.miktex/texmfs/install/fonts/
+type1/public/amsfonts/cm/cmsy8.pfb></home/dua/.miktex/texmfs/install/fonts/type
+1/urw/courier/ucrr8a.pfb></home/dua/.miktex/texmfs/install/fonts/type1/urw/helv
+etic/uhvb8a.pfb></home/dua/.miktex/texmfs/install/fonts/type1/urw/helvetic/uhvr
+8a.pfb></home/dua/.miktex/texmfs/install/fonts/type1/urw/times/utmb8a.pfb></hom
+e/dua/.miktex/texmfs/install/fonts/type1/urw/times/utmr8a.pfb></home/dua/.mikte
+x/texmfs/install/fonts/type1/urw/times/utmri8a.pfb>
+Output written on zavrsni.pdf (25 pages, 820894 bytes).
 PDF statistics:
- 143 PDF objects out of 1000 (max. 8388607)
+ 182 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 66 words of extra memory for PDF output out of 10000 (max. 10000000)
 
