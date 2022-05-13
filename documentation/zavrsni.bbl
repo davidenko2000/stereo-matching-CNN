@@ -1,9 +1,14 @@
-\begin{thebibliography}{3}
+\begin{thebibliography}{6}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Ajagekar()]{adam}
+Akash Ajagekar.
+\newblock Adam.
+\newblock URL \url{https://optimization.cbe.cornell.edu/index.php?title=Adam}.
 
 \bibitem[Bunjevac(2017)]{bunjevac2017stereo}
 Nikola Bunjevac.
@@ -17,6 +22,17 @@ Richard~Szeliski Daniel~Scharstein.
 \newblock A taxonomy and evaluation of dense two-frame stereo correspondence
   algorithms.
 \newblock URL \url{https://vision.middlebury.edu/stereo/taxonomy-IJCV.pdf}.
+
+\bibitem[Šegvić()]{duboko}
+Siniša Šegvić.
+\newblock Neslužbene stranice predmeta duboko učenje 1.
+\newblock URL \url{http://www.zemris.fer.hr/~ssegvic/du/}.
+
+\bibitem[Jonathon~Price()]{sgd}
+Alfred~Wong Jonathon~Price.
+\newblock Stochastic gradient descent.
+\newblock URL
+  \url{https://optimization.cbe.cornell.edu/index.php?title=Stochastic_gradient_descent}.
 
 \bibitem[Kovač(2015)]{kovac2015stereo}
 Dino Kovač.

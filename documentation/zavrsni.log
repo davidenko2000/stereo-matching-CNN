@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.6) (preloaded format=pdflatex 2021.10.28)  10 MAY 2022 12:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.6) (preloaded format=pdflatex 2021.10.28)  13 MAY 2022 23:28
 entering extended mode
 **./zavrsni.tex
 (zavrsni.tex
@@ -393,6 +393,36 @@ LaTeX Warning: Label `eq:Perceptron' multiply defined.
 
 
 LaTeX Warning: Label `fig:Perceptron' multiply defined.
+
+
+LaTeX Warning: Label `eq:Aktivacija' multiply defined.
+
+
+LaTeX Warning: Label `eq:Aktivacija' multiply defined.
+
+
+LaTeX Warning: Label `eq:Aktivacija' multiply defined.
+
+
+LaTeX Warning: Label `eq:Aktivacija' multiply defined.
+
+
+LaTeX Warning: Label `eq:Aktivacija' multiply defined.
+
+
+LaTeX Warning: Label `eq:Aktivacija' multiply defined.
+
+
+LaTeX Warning: Label `eq:Aktivacija' multiply defined.
+
+
+LaTeX Warning: Label `eq:Aktivacija' multiply defined.
+
+
+LaTeX Warning: Label `eq:Aktivacija' multiply defined.
+
+
+LaTeX Warning: Label `eq:Aktivacija' multiply defined.
 
 
 LaTeX Warning: Label `eq:Aktivacija' multiply defined.
@@ -847,74 +877,140 @@ Underfull \hbox (badness 10000) in paragraph at lines 225--228
  []
 
 [13]
+Overfull \hbox (8.79874pt too wide) in paragraph at lines 239--241
+\T1/ptm/m/n/12 Popularan klasifikator koji koristi unakrsnu entropiju, a daje v
+jerojatnosnu reprezentaciju
+ []
+
+
+Overfull \hbox (14.28136pt too wide) in paragraph at lines 246--248
+\T1/ptm/m/n/12 U prija²njem pododjeljku definirana je funkcija gubitka, cilj u£
+enja modela je minimizirati
+ []
+
+[14]
+Overfull \hbox (33.31439pt too wide) in paragraph at lines 268--270
+\T1/ptm/m/n/12 kori²tenjem njega se mogu manifestirati neki problemi koji kao p
+osljedicu imaju nepronalazak
+ []
+
+
+Overfull \hbox (2.72739pt too wide) in paragraph at lines 271--273
+\T1/ptm/m/n/12 zalet takožer uzima u obzir i prethodno aºuriranje, pomnoºeno sa
+ faktorom umanjivanja
+ []
+
+
+Overfull \hbox (24.68684pt too wide) in paragraph at lines 278--279
+\T1/ptm/m/n/12 metodologije gradijentnog spusta zaleta i RMSprop algoritma ubrz
+ava pronalazak globalnog
+ []
+
+
+Overfull \hbox (2.57085pt too wide) in paragraph at lines 278--279
+\T1/ptm/m/n/12 minimuma. Glavna zna£ajka ADAM-a je ²to koristi prosje£no ekspon
+encijalno kretanje
+ []
+
+
+Overfull \hbox (1.16695pt too wide) in paragraph at lines 278--279
+\T1/ptm/m/n/12 gradijenta i kvadratnog gradijenta, te ga to £ini izrazito efika
+snim na velikim skupovima
+ []
+
+
+Overfull \hbox (4.16728pt too wide) in paragraph at lines 280--282
+\T1/ptm/m/n/12 Kako bi se izbjegla prenau£enost modela (engl. overfitting), odn
+osno lo²a generalizacija
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 289--293
+
+ []
+
+[15] [16]
 Poglavlje 4.
-[14
-
-]
-Poglavlje 5.
-[15
-
-]
-Poglavlje 6.
-[16
-
-]
-Poglavlje 7.
 [17
 
 ]
-Poglavlje 8.
-(zavrsni.bbl [18
+Poglavlje 5.
+[18
 
 ]
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 13
+Poglavlje 6.
+[19
+
+]
+Poglavlje 7.
+[20
+
+]
+Poglavlje 8.
+(zavrsni.bbl [21
+
+]
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 11
 .
  (/home/dua/.miktex/texmfs/install/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
-Underfull \hbox (badness 10000) in paragraph at lines 9--14
+Underfull \hbox (badness 10000) in paragraph at lines 14--19
 []\T1/ptm/m/n/12 Nikola Bunjevac.  Gusta stereoskopska rekonstrukcija polugloba
 lnim
  []
 
 
-Underfull \hbox (badness 2181) in paragraph at lines 16--20
+Underfull \hbox (badness 2181) in paragraph at lines 21--25
 \T1/ptm/m/n/12 two-frame stereo correspondence algorithms.  URL $\T1/pcr/m/n/12
  https : / / vision .
  []
 
-) [19
 
-] [20] (zavrsni.aux)
+Underfull \hbox (badness 7540) in paragraph at lines 32--36
+[]\T1/ptm/m/n/12 Alfred Wong Jonathon Price.  Stochastic gradient descent.  URL
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 32--36
+\T1/pcr/m/n/12 https : / / optimization . cbe . cornell . edu / index . php ? t
+itle =
+ []
+
+) [22
+
+] [23] (zavrsni.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 9008 strings out of 480844
- 137986 string characters out of 2903846
- 472557 words of memory out of 3000000
- 26478 multiletter control sequences out of 15000+600000
- 457540 words of font info for 95 fonts, out of 8000000 for 9000
+ 9021 strings out of 480844
+ 138145 string characters out of 2903846
+ 471633 words of memory out of 3000000
+ 26491 multiletter control sequences out of 15000+600000
+ 464220 words of font info for 99 fonts, out of 8000000 for 9000
  0 hyphenation exceptions out of 8191
  72i,17n,80p,864b,434s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/home/dua/.miktex/texmfs/install/fonts/enc/dvips/base/8r.enc}</home/dua/.mik
 tex/texmfs/install/fonts/type1/public/amsfonts/cm/cmex10.pfb></home/dua/.miktex
 /texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pfb></home/dua/.miktex/te
 xmfs/install/fonts/type1/public/amsfonts/cm/cmmi12.pfb></home/dua/.miktex/texmf
-s/install/fonts/type1/public/amsfonts/cm/cmmi8.pfb></home/dua/.miktex/texmfs/in
-stall/fonts/type1/public/amsfonts/cm/cmr12.pfb></home/dua/.miktex/texmfs/instal
-l/fonts/type1/public/amsfonts/cm/cmr8.pfb></home/dua/.miktex/texmfs/install/fon
-ts/type1/public/amsfonts/cm/cmsy10.pfb></home/dua/.miktex/texmfs/install/fonts/
-type1/public/amsfonts/cm/cmsy8.pfb></home/dua/.miktex/texmfs/install/fonts/type
-1/urw/courier/ucrr8a.pfb></home/dua/.miktex/texmfs/install/fonts/type1/urw/helv
-etic/uhvb8a.pfb></home/dua/.miktex/texmfs/install/fonts/type1/urw/helvetic/uhvr
-8a.pfb></home/dua/.miktex/texmfs/install/fonts/type1/urw/times/utmb8a.pfb></hom
-e/dua/.miktex/texmfs/install/fonts/type1/urw/times/utmr8a.pfb></home/dua/.mikte
-x/texmfs/install/fonts/type1/urw/times/utmri8a.pfb>
-Output written on zavrsni.pdf (25 pages, 820894 bytes).
+s/install/fonts/type1/public/amsfonts/cm/cmmi6.pfb></home/dua/.miktex/texmfs/in
+stall/fonts/type1/public/amsfonts/cm/cmmi8.pfb></home/dua/.miktex/texmfs/instal
+l/fonts/type1/public/amsfonts/cm/cmr12.pfb></home/dua/.miktex/texmfs/install/fo
+nts/type1/public/amsfonts/cm/cmr8.pfb></home/dua/.miktex/texmfs/install/fonts/t
+ype1/public/amsfonts/cm/cmsy10.pfb></home/dua/.miktex/texmfs/install/fonts/type
+1/public/amsfonts/cm/cmsy8.pfb></home/dua/.miktex/texmfs/install/fonts/type1/ur
+w/courier/ucrr8a.pfb></home/dua/.miktex/texmfs/install/fonts/type1/urw/helvetic
+/uhvb8a.pfb></home/dua/.miktex/texmfs/install/fonts/type1/urw/helvetic/uhvr8a.p
+fb></home/dua/.miktex/texmfs/install/fonts/type1/urw/times/utmb8a.pfb></home/du
+a/.miktex/texmfs/install/fonts/type1/urw/times/utmr8a.pfb></home/dua/.miktex/te
+xmfs/install/fonts/type1/urw/times/utmri8a.pfb>
+Output written on zavrsni.pdf (28 pages, 846124 bytes).
 PDF statistics:
- 182 PDF objects out of 1000 (max. 8388607)
+ 196 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  66 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -20,7 +20,7 @@
 \includepdf[pages=-]{izvornik.pdf}
 
 % Dodavanje zahvale ili prazne stranice. Ako ne želite dodati zahvalu, naredbu ostavite radi prazne stranice.
-\zahvala{Zahvaljujem mentoru prof.~dr.~sc.~Siniši Šegviću, na savjetima i ukazanoj pomoći. Također, zahvaljujem svojoj obitelji, prijateljima i kolegama na potpori tijekom mojeg dosadašnjeg obrazovanja.}
+\zahvala{Zahvaljujem mentoru prof.~dr.~sc.~Siniši Šegviću, na savjetima i ukazanoj pomoći. Zahvaljujem kolegi Antoniu Ilinoviću na diskusijama i pomoći tijekom izrade rada. Također, zahvaljujem svojoj obitelji, prijateljima i kolegama na potpori tijekom mojeg dosadašnjeg obrazovanja.}
 
 \tableofcontents
 
@@ -227,22 +227,88 @@ x_{21}w_{11} + x_{22}w_{12} & x_{22}w_{11} + x_{23}w_{12}\\+ x_{31}w_{21} + x_{3
 Jednadžbom 3.9 prikazana je matrična reprezentacija dimenzija $3x3$, dok je jezgra dimenzije $2x2$. Jezgra se provlači po ulaznoj matrici (računa se skalarni umnožak) i nastaje izlazna mapa značajki dimenzija $2x2$. Iz ovog je vidljivo da se konvolucijom smanjuje dimenzija ulaza.
 
 Ukoliko želimo zadržati rezoluciju slike nakon konvolucijskog sloja, potrebno je uvesti nadopunjavanje (engl. \textit{padding}). Najčešće je korištena metoda popunjavanja nulama. Još jedan od hiperparametara je korak (engl. \textit{stride}). Korak govori o tome koliko se jezgra pomiče u vertikalnom i horizontalnom smjeru. U jednadžbi 3.9 je korišten korak 1.
-\subsection{Optimizacija}
-\subsection{Regularizacija}
 \section{Učenje dubokih modela}
+Učenje dubokih modela, u generalnom slučaju neuronske mreže, je postupak tijekom koje se modelu na ulaz daju podaci iz skupa za učenje. Tijekom procesa učenja model ažurira težine u slojevima s ciljem kako bi što bolje aproksimirao izlaznu funkciju. Za početak kako bi mogli odrediti koliko odstupamo od pravih vrijednosti, uvodimo pojam funkcije gubitka. U procesu učenja provodi se minimizacija funkcije gubitka. Ukoliko na skupu podataka gubitak ispada malen, a na skupu podataka koje još nije vidio ispada izražen, govorimo o tzv. prenaučenosti modela, što znači da model nema sposobnost generalizacije.\\
+Postoji nekoliko pristupa učenju, nadzirano učenje u kojem se modelu predaju parovi oblika (ulaz, željeni izlaz), nenadzirano u kojem se modelu samo predaju ulazni podaci, te podržano učenje u kojem se maksimizira kumulativna nagrada. U ovom radu bit će razmatrano nadzirano učenje.\pagebreak
 \subsection{Funkcija gubitka}
+Kako bismo procijenili koliko model odstupa od željenih vrijednosti izlaza koristimo funkciju gubitka. Ako model loše procjenjuje, gubitak će biti velik. 
+Kod problema klasifikacije najčešće je korištena unakrsna entropija (engl.\textit{cross-entropy loss}):
+\begin{equation}
+L_{CE}=-\sum_{i=1}^{n}t_{i}\cdot log(p_{i})
+\label{eq:Aktivacija}
+\end{equation}
+Popularan klasifikator koji koristi unakrsnu entropiju, a daje vjerojatnosnu reprezentaciju izlaza modela je funkcija \textit{softmax}:
+\begin{equation}
+f_{j}(z) = \frac{e^{{z_{j}}}}{\sum_{k}^{}e^{z_{k}}}
+\label{eq:Aktivacija}
+\end{equation}
 \subsection{Gradijentni spust}
-\subsection{Memorijska zahtjevnost}
+U prijašnjem pododjeljku definirana je funkcija gubitka, cilj učenja modela je minimizirati gubitak. Kako bi se parametri pomicali u smjeru minimuma funkcije gubitka, a da istovremeno pomak bude što veći izračunava se gradijent funkcije gubitka. \\
+Neka je zadana funkcija gubitka koja ovisi o težinama $\textbf{W}$ i pomacima $\textbf{b}$. Gradijenti funkcije gubitka mogu se zapisati kao:
+\begin{equation}
+\nabla L_{w} = \left(\frac{\partial L}{\partial w_{1}},...,\frac{\partial L}{\partial w_{n}} \right)
+\label{eq:Aktivacija}
+\end{equation}
+\begin{equation}
+\nabla L_{b} = \left(\frac{\partial L}{\partial b_{1}},...,\frac{\partial L}{\partial b_{n}} \right)
+\label{eq:Aktivacija}
+\end{equation}
+gdje $n$ predstavlja broj parametara.\\
+U iteracijama gradijentnog spusta parametri se ažuriraju prema sljedećim izrazima:
+\begin{equation}
+W_{i+1} = W_{i} - \epsilon \cdot \nabla L_{w}(\textbf{W},\textbf{b})
+\label{eq:Aktivacija}
+\end{equation}
+\begin{equation}
+b_{i+1} = b_{i} - \epsilon \cdot \nabla L_{b}(\textbf{W},\textbf{b})
+\label{eq:Aktivacija}
+\end{equation}
+gdje je $\epsilon$ tzv. stopa učenja (engl. \textit{learning rate}), a predstavljena je malim pozitivnim realnim brojem.\cite{duboko} \pagebreak
+\subsection{Optimizacija}
+Kad govorimo o optimizaciji, najkorištenija metoda je svakako gradijentni spust, no korištenjem njega se mogu manifestirati neki problemi koji kao posljedicu imaju nepronalazak optimalnih težina. Postojanje više lokalnih minimuma i spora kovergencija jedni su od problema. 
+U ovom radu je korišten ADAM optimizator,a svakako potrebno je spomenuti i SGD optimizator. 
+
+Glavna ideja optimizatora SGD je procijeniti gradijent cijelog skupa uzoraka sa malim slučajno odabranim podskupom uzoraka (mini-grupa, engl. \textit{minibatch}). Već i veličine od 128 daju vrlo dobru aproksimaciju gradijenta. U usporedbi s "običnim" gradijentnim spustom (GD) to znatno ubrzava proces učenja, jer se kod GD izračun treba provesti za cijeli skup. Stohastički gradijentni spust koristi se uz zalet koji ubrzava učenje. Umjesto ažuriranja težina koristeći samo trenutno izačunat gradijent, zalet također uzima u obzir i prethodno ažuriranje, pomnoženo sa faktorom umanjivanja $\alpha$.\cite{sgd}\\ 
+Modifikacija u odnosu na GD je vidljiva sljedećom jednadžbom:
+\begin{align}
+v = \mu v + \nabla L_{w}
+\end{align}
+,gdje je $v$ trenutno akumuliran zalet, a $\mu$ je zalet.
+
+Adaptive Moment Estimation (ADAM) je optimizator koji kombinacijom dvije metodologije gradijentnog spusta zaleta i RMSprop algoritma ubrzava pronalazak globalnog minimuma. Glavna značajka ADAM-a je što koristi prosječno eksponencijalno kretanje gradijenta i kvadratnog gradijenta, te ga to čini izrazito efikasnim na velikim skupovima podataka i u radu s velikim brojem parametara\cite{adam}.
+\subsection{Regularizacija}
+Kako bi se izbjegla prenaučenost modela (engl. overfitting), odnosno loša generalizacija modela potrebno je uvesti regularizatore koji imaju za cilj spriječiti prenaučenost.\\
+Jedna od metoda koje se koriste je regularizacija dodavanjem regularizacijskog faktora funkciji gubitka. Pri tome treba spomenuti $L1$ i $L2$ regularizaciju, kojima se kažnjava norma vektora težina.
+\begin{equation}
+L_{R}= L + \lambda \cdot \sum_{i} |w_{i}|
+\label{eq:Aktivacija}
+\end{equation}
+\begin{equation}
+L_{R}= L + \lambda \cdot \sum_{i} w_{i}^2
+\label{eq:Aktivacija}
+\end{equation}
+Izrazom 3.17 opisana je $L1$ regularizacija, a 3.18 $L2$ regularizacija.\\ \\
+Regularizacijska metoda koja istovremeno ima i ulogu optimizacije je normalizacija grupe (engl. \textit{batch norm}). Normalizacija grupe primjenjuje se prije nelinearnosti, a temelji se na normalizaciji izlaza na normalnu jediničnu razdiobu. Posljedica takvog pristupa je što ulazi u slojeve imaju sličnu razdiobu, čime se postiže ubrzanje učenja bržom propagacijom gradijenata.
+U postupku normalizacije u mini grupi za svaku izlaznu mapu značajki računaju se srednja vrijednost i varijanca po sljedećim izrazima:
+\begin{equation}
+\mu _{B} = \frac{1}{m}\sum_{i=1}^{m}\textbf{x}_{i}
+\label{eq:Aktivacija}
+\end{equation}
+\begin{equation}
+\sigma^{2} _{B} = \frac{1}{m}\sum_{i=1}^{m}\left(\textbf{x}_{i} - \mu_{B} \right)
+\label{eq:Aktivacija}
+\end{equation}
+gdje $B$ označava mini grupu, a $x$ vrijednost ulaza.
+Nelinearnost se onda primijenjuje na tako normaliziranom izlazu.
 \chapter{Podatkovni skup za učenje}
+Kako je već rečeno, u ovom radu učenje je nadzirano. Podatkovni skup KITTI jedan je od skupova koji se koriste u učenju postupka stereoskopske rekonstrukcije.U sljedećem pododjeljku bit će predstavljen podatkovni skup KITTI 2015, njegove specifičnosti, te postupci pripreme podataka.
 \section{Podatkovni skup KITTI 2015}
 \chapter{Duboko učenje u kontekstu stereoskopske rekonstrukcije}
 \section{Ugrađivanje okana u metrički prostor}
 \section{Učenje modela za ostvarivanje korespodencije}
 \chapter{Eksperimentalni rezultati}
 \chapter{Programska izvedba i vanjske biblioteke}
-
 \chapter{Zaključak}
-Zaključak.
 
 \bibliographystyle{fer}
 \bibliography{literatura}
