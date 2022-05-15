@@ -18,10 +18,10 @@
 \contentsline {subsection}{\numberline {3.2.4}Regularizacija}{15}{}%
 \contentsline {chapter}{\numberline {4}Podatkovni skup za učenje}{17}{}%
 \contentsline {section}{\numberline {4.1}Podatkovni skup KITTI 2015}{17}{}%
-\contentsline {chapter}{\numberline {5}Duboko učenje u kontekstu stereoskopske rekonstrukcije}{18}{}%
-\contentsline {section}{\numberline {5.1}Ugrađivanje okana u metrički prostor}{18}{}%
-\contentsline {section}{\numberline {5.2}Učenje modela za ostvarivanje korespodencije}{18}{}%
-\contentsline {chapter}{\numberline {6}Eksperimentalni rezultati}{19}{}%
-\contentsline {chapter}{\numberline {7}Programska izvedba i vanjske biblioteke}{20}{}%
-\contentsline {chapter}{\numberline {8}Zaključak}{21}{}%
-\contentsline {chapter}{Literatura}{22}{}%
+\contentsline {chapter}{\numberline {5}Duboko učenje u kontekstu stereoskopske rekonstrukcije}{19}{}%
+\contentsline {section}{\numberline {5.1}Ugrađivanje okana u metrički prostor}{19}{}%
+\contentsline {section}{\numberline {5.2}Učenje modela za ostvarivanje korespodencije}{19}{}%
+\contentsline {chapter}{\numberline {6}Eksperimentalni rezultati}{20}{}%
+\contentsline {chapter}{\numberline {7}Programska izvedba i vanjske biblioteke}{21}{}%
+\contentsline {chapter}{\numberline {8}Zaključak}{22}{}%
+\contentsline {chapter}{Literatura}{23}{}%

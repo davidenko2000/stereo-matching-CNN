@@ -303,6 +303,15 @@ Nelinearnost se onda primijenjuje na tako normaliziranom izlazu.
 \chapter{Podatkovni skup za učenje}
 Kako je već rečeno, u ovom radu učenje je nadzirano. Podatkovni skup KITTI jedan je od skupova koji se koriste u učenju postupka stereoskopske rekonstrukcije.U sljedećem pododjeljku bit će predstavljen podatkovni skup KITTI 2015, njegove specifičnosti, te postupci pripreme podataka.
 \section{Podatkovni skup KITTI 2015}
+Podatkovni skup KITTI 2015, skup je od 200 stereo parova slika za koje su laserski izmjerene mape dispariteta. Stereo par slika je unaprijed kalibriran i rektificiran. Primjer uz odgovarajuće disparitete prikazan je na slici 4.1. Podatkovni skup je često korišten u postupcima stereoskopske rekonstrukcije za autonomnu vožnju.Podatkovni skup je podijeljen na skup za učenje kojeg čini 60\% slika, sljedećih 20\% čini skup za validaciju, te preostalih 20\% čini skup za testiranje.\\
+Mape dispariteta su vrlo rijetke, odnosno dispariteti su izmjereni laserski za manji podskup piksela. Takve mape će na mjestima piksela za koje nije izmjeren disparitet imati vrijednost nula. Primjer takvih piksela su oni koji prikazuju udaljene objekte, kao što je nebo. Takvo mjerenje proizlazi iz toga što je disparitet obrnuto proporcionalan udaljenosti, te poprima vrijednost nula u beskonačnosti. \\
+Također napravljena je intervencija na područjima slike na kojima se nalazi automobil. Intervencija se sastojala od progušćivanja dispariteta na mjestima automobila. Ova intervencija je od velike važnosti rekostrukcijskim algoritmima jer se na automobilu nalaze refleksivne površine poput stakla koje u konkurentnim stereo kamerama mogu izgledati drugačije.\cite{zbontar}
+\begin{figure}[htb]
+\centering
+\includegraphics[width = 14.5cm]{img/slika11.png}
+\caption{Primjer iz podatkovnog skupa KITTI 2015. Gornja slika prikazuje referentnu lijevu sliku, a donja slika prikazuje disparitet za odgovarajuću sliku.}
+\label{fig:KITTI}
+\end{figure}
 \chapter{Duboko učenje u kontekstu stereoskopske rekonstrukcije}
 \section{Ugrađivanje okana u metrički prostor}
 \section{Učenje modela za ostvarivanje korespodencije}

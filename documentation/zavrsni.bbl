@@ -1,4 +1,4 @@
-\begin{thebibliography}{6}
+\begin{thebibliography}{7}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -33,6 +33,13 @@ Alfred~Wong Jonathon~Price.
 \newblock Stochastic gradient descent.
 \newblock URL
   \url{https://optimization.cbe.cornell.edu/index.php?title=Stochastic_gradient_descent}.
+
+\bibitem[Jure~Žbontar(2016)]{zbontar}
+Yann~LeCun Jure~Žbontar.
+\newblock Stereo matching by training a convolutional neural network to compare
+  image patches.
+\newblock 2016.
+\newblock URL \url{https://arxiv.org/abs/1510.05970/}.
 
 \bibitem[Kovač(2015)]{kovac2015stereo}
 Dino Kovač.
