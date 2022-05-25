@@ -364,6 +364,29 @@ L(R, P, N) = max(0, m + \textbf{h}(\textbf{R}|\theta)\cdot \textbf{h}(\textbf{N}
 pri čemu $h$ predstavlja izlaz modela s parametrima $\theta$. U funkciji gubitka zahtijevano je da je ugrađivanje referentnog okna sličnije ugrađivanju pozitivnog okna u odnosu na ugrađivanje negativnog okna za najmanje $m$. Pojednostavljeno rečeno, model će učiti samo na primjerima na kojima je sličnost $R$ i $P$ manja od sličnosti između $R$ i $N$ za više od $m$.\cite{orsic}
 
 \chapter{Eksperimentalni rezultati}
+Kvalitetu rekonstrukcijske točnosti ocjenuje se na slikama za koje su poznati dispariteti. Svi eksperimenti provedeni su na predstavljenom skupu KITTI. Za točno rekonstuirani piksel smatrat će se ako je odstupanje od točnog manje od 3. U tu svrhu koristit će se skup za testiranje koji se sastoji od 20\% slika početnog skupa od 200 slika.\\
+Učenje traje 14 epoha, algoritam učenja je ADAM uz stopu učenja koja iznosi $1e^{-3}$ do 10. epohe, a nakon nje je $1e^{-4}$. Veličina mini-grupe (engl. batch-size) je 128.  Svi eksperimenti izvodili su se na platformi Colab pro, a učenje je trajalo 9 sati.\\
+Provedena su sljedeća 3 eksperimenta:
+\begin{itemize}
+\item[•]Ulazne slike u boji (RGB) s čvrstim pozitivima, odnosno bez posmaka
+\item[•]Ulazne slike u boji (RGB) s rastresenim pozitivima, odnosno nasumično \linebreak posmaknutim brojem iz skupa \{-1, 0, 1\}
+\item[•]Sive ulazne slike s čvrstim pozitivima
+\end{itemize}
+
+\begin{table}[htb]
+\caption{Rekonstrukcijske točnosti razmatrani modela}
+\label{tbl:konstante}
+\centering
+\begin{tabular}{llr} \hline
+Model & Treniranje & Testiranje\\ \hline
+Ulazne slike u boji (RGB) s čvrstim pozitivima & 82.90\% & 81.24\% \\
+Ulazne slike u boji (RGB) s rastresenim pozitivima & 82.43\% & 80.81\% \\
+Sive ulazne slike s čvrstim pozitivima &  &  \\ \hline
+\end{tabular}
+\end{table}
+U tablici 6.1. prikazane su rekonstrukcijske točnosti razmatranih eksperimenata. Najbolji od 3 razmatrana modela je onaj koji koristi ulazne slike u boji s čvrstim pozitivima.\pagebreak
+
+Na slikama 6.1, 6.2 i 6.3 prikazano je kretanje prosječnih gubitaka po epohama i to na skupovima za treniranje i validaciju. Slike prikazuju grafove za model s čvrstim i rastresenim pozitivima za RGB, te model s čvrstim  pozitivima za sive ulazne slike. Vidljivo je kako model koji koristi čvrste pozitive brže minimizira pogrešku. Što se tiče sivih slika s čvrstim pozitivima u odnosu na RGB slike s čvrstim pozitivima,  model s RGB slikama je bolji, razlog leži u tome što RGB slike imaju 3 kanala,te posljedično nose više informacija.
 \begin{figure}[htb]
 \centering
 \includegraphics[scale = 0.44]{img/HARDPOS_RGB.png}
@@ -373,16 +396,28 @@ pri čemu $h$ predstavlja izlaz modela s parametrima $\theta$. U funkciji gubitk
 \begin{figure}[htb]
 \centering
 \includegraphics[scale = 0.44]{img/LOOSE_RGB.png}
-\caption{Graf prikazuje kretanje prosječnog gubitka tijekom epoha treniranja i validacije. Za učenje modela se koriste rastreseni pozitivi RGB slika (posmaknuti za nasumičan broj u skupu {-1, 0, 1}).}
+\caption{Graf prikazuje kretanje prosječnog gubitka tijekom epoha treniranja i validacije. Za učenje modela se koriste rastreseni pozitivi RGB slika (posmaknuti za nasumičan broj u skupu \{-1, 0, 1\}).}
 \label{fig:KITTI}
 \end{figure}
 \begin{figure}[htb]
 \centering
-\includegraphics[scale = 0.44]{img/eval.png}
-\caption{Prikaz rekonstrukcijske točnosti modela za ugrađivanje okana u visokodimenzionalan prostor. Lijeve slike prikazuju slike iz lijeve referentne kamere. U sredini se nalaze procjenjene mape dispariteta. Zdesna se nalaze rekonstrukcijske točnosti, pri čemu su crnom bojom označeni pikseli uz nepoznat disparitet, plavom bojom pogrešno rekonstruirani pikseli, te zelenom bojom točno rekonstruirani pikseli.}
+\includegraphics[scale = 0.44]{img/LOOSE_RGB.png}
+\caption{Graf prikazuje kretanje prosječnog gubitka tijekom epoha treniranja i validacije. Za učenje modela se koriste čvrsti pozitivi sivih slika.}
+\label{fig:KITTI}
+\end{figure}
+\pagebreak\\
+Na slici 6.4. prikazane su rekonstrukcije za 4 slike nasumično odabrane iz skupa. Na mapama dispariteta je vidljiva velika razlika u susjednim pikselima, što je posljedica nekorištenja nekog od filtera zaglađivanja.  Razmatrana metoda griješi na mjestima slike na kojima se nalaze refleksivne površine automobila. Na takvim područjima se svjetlost odbija, te okna iz tih područja predstavljaju problem modelu u procesu učenja. Sljedeća pojava koja predstavlja problem modelu su područja koja se na slikama jedne kamere vide, a na slikama druge kamere ne. Ta pojava naziva se stereoskopskom sjenom.\cite{ilinovic}
+
+\begin{figure}[htb]
+\centering
+\includegraphics[scale = 0.43]{img/eval.png}
+\caption{Prikaz rekonstrukcijske točnosti modela za ugrađivanje okana u visokodimenzionalan prostor. Lijeve slike prikazuju slike iz lijeve referentne kamere. U sredini se nalaze procjenjene mape dispariteta. Na mapi dispariteta što je svjetliji piksel to je veći disparitet, a tamniji što je manji.Zdesna se nalaze rekonstrukcijske točnosti, pri čemu su crnom bojom označeni pikseli uz nepoznat disparitet, plavom bojom pogrešno rekonstruirani pikseli, te zelenom bojom točno rekonstruirani pikseli.}
 \label{fig:KITTI}
 \end{figure}
 \chapter{Programska izvedba i vanjske biblioteke}
+Za izradu ovog rada korišten je programski jezik Python. Za izgradnju  i učenje modela korišteno je radno okruženje PyTorch. Ovo okruženje nudi velik spektar alata i podrške, a jedan od njih je automatska diferencijacija, što uvelike ubrzava proces izgradnje i učenja modela. Torch kao sastavna jednica PyTorcha omogućava izračune tenzorima na velikoj paleti grafičkih kartica kompanije Nvidia.\\ Za pripremu podataka i računanje tenzorima korištena je biblioteka Numpy. Ova biblioteka pisana je u jeziku niske razine C, što čini operacije vrlo brzim.\\
+Za proces učenja, validacije i testiranja korištena je platforma Colab Pro u kombinaciji s Google Drive. Platforma u pretplati Pro nudi 3 grafičke kartice koje se dodjeljuju ovisno o raspoloživosti. Tipovi grafičkih kartica su sljedeći: K80, T4 i P100.\\
+Podatkovni skup KITTI 2015 uzet je s javno dostupne stranice u vlasništvu kolaboracije Karlsruhe Institute of Technology i Toyota Technological Institute. 
 \chapter{Zaključak}
 
 \bibliographystyle{fer}

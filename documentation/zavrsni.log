@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.6) (preloaded format=pdflatex 2021.10.28)  25 MAY 2022 18:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.6) (preloaded format=pdflatex 2021.10.28)  25 MAY 2022 20:20
 entering extended mode
 **./zavrsni.tex
 (zavrsni.tex
@@ -432,6 +432,9 @@ LaTeX Warning: Label `fig:KITTI' multiply defined.
 
 
 LaTeX Warning: Label `eq:normalizacija' multiply defined.
+
+
+LaTeX Warning: Label `fig:KITTI' multiply defined.
 
 
 LaTeX Warning: Label `fig:KITTI' multiply defined.
@@ -997,47 +1000,71 @@ Package pdftex.def Info: img/okna.png  used on input line 353.
 (pdftex.def)             Requested size: 337.25769pt x 177.76291pt.
 [21 <./img/okna.png>] [22]
 Poglavlje 6.
-<img/HARDPOS_RGB.png, id=132, 681.54625pt x 332.24126pt>
-File: img/HARDPOS_RGB.png Graphic file (type png)
-<use img/HARDPOS_RGB.png>
-Package pdftex.def Info: img/HARDPOS_RGB.png  used on input line 369.
-(pdftex.def)             Requested size: 299.88127pt x 146.1866pt.
-<img/LOOSE_RGB.png, id=133, 671.50874pt x 344.28625pt>
-File: img/LOOSE_RGB.png Graphic file (type png)
-<use img/LOOSE_RGB.png>
-Package pdftex.def Info: img/LOOSE_RGB.png  used on input line 375.
-(pdftex.def)             Requested size: 295.46477pt x 151.4864pt.
-<img/eval.png, id=134, 971.63pt x 415.5525pt>
-File: img/eval.png Graphic file (type png)
-<use img/eval.png>
-Package pdftex.def Info: img/eval.png  used on input line 381.
-(pdftex.def)             Requested size: 427.51852pt x 182.84366pt.
 
-Overfull \hbox (14.95355pt too wide) in paragraph at lines 381--382
- [][] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 382--382
-[]\T1/ptm/b/n/10.95 Slika 6.3: |\T1/ptm/m/n/10.95 Prikaz rekonstrukcijske to£no
-sti modela za ugraživanje okana u
- []
-
-
-Underfull \hbox (badness 1033) in paragraph at lines 382--382
-\T1/ptm/m/n/10.95 visokodimenzionalan prostor. Lijeve slike prikazuju slike iz 
-lijeve referentne kamere.
+Overfull \hbox (1.46606pt too wide) in paragraph at lines 367--370
+\T1/ptm/m/n/12 Kvalitetu rekonstrukcijske to£nosti ocjenuje se na slikama za ko
+je su poznati dispariteti.
  []
 
 [23
 
- <./img/HARDPOS_RGB.png> <./img/LOOSE_RGB.png>] [24 <./img/eval.png>]
+]
+<img/HARDPOS_RGB.png, id=135, 681.54625pt x 332.24126pt>
+File: img/HARDPOS_RGB.png Graphic file (type png)
+<use img/HARDPOS_RGB.png>
+Package pdftex.def Info: img/HARDPOS_RGB.png  used on input line 392.
+(pdftex.def)             Requested size: 299.88127pt x 146.1866pt.
+<img/LOOSE_RGB.png, id=136, 671.50874pt x 344.28625pt>
+File: img/LOOSE_RGB.png Graphic file (type png)
+<use img/LOOSE_RGB.png>
+Package pdftex.def Info: img/LOOSE_RGB.png  used on input line 398.
+(pdftex.def)             Requested size: 295.46477pt x 151.4864pt.
+File: img/LOOSE_RGB.png Graphic file (type png)
+<use img/LOOSE_RGB.png>
+Package pdftex.def Info: img/LOOSE_RGB.png  used on input line 404.
+(pdftex.def)             Requested size: 295.46477pt x 151.4864pt.
+ [24 <./img/HARDPOS_RGB.png> <./img/LOOSE_RGB.png>]
+<img/eval.png, id=140, 971.63pt x 415.5525pt>
+File: img/eval.png Graphic file (type png)
+<use img/eval.png>
+Package pdftex.def Info: img/eval.png  used on input line 413.
+(pdftex.def)             Requested size: 417.79276pt x 178.68408pt.
+
+Overfull \hbox (5.22778pt too wide) in paragraph at lines 413--414
+ [][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 414--414
+[]\T1/ptm/b/n/10.95 Slika 6.4: |\T1/ptm/m/n/10.95 Prikaz rekonstrukcijske to£no
+sti modela za ugraživanje okana u
+ []
+
+
+Underfull \hbox (badness 1033) in paragraph at lines 414--414
+\T1/ptm/m/n/10.95 visokodimenzionalan prostor. Lijeve slike prikazuju slike iz 
+lijeve referentne kamere.
+ []
+
+[25 <./img/eval.png>]
 Poglavlje 7.
-[25
+
+Overfull \hbox (1.62407pt too wide) in paragraph at lines 418--421
+\T1/ptm/m/n/12 kori²teno je radno okruºenje PyTorch. Ovo okruºenje nudi velik s
+pektar alata i podr²ke,
+ []
+
+
+Overfull \hbox (1.41905pt too wide) in paragraph at lines 418--421
+\T1/ptm/m/n/12 Podatkovni skup KITTI 2015 uzet je s javno dostupne stranice u v
+lasni²tvu kolaboracije
+ []
+
+[26
 
 ]
 Poglavlje 8.
-(zavrsni.bbl [26
+(zavrsni.bbl [27
 
 ]
 LaTeX Font Info:    Trying to load font information for T1+pcr on input line 11
@@ -1051,49 +1078,57 @@ lnim
  []
 
 
-Underfull \hbox (badness 2181) in paragraph at lines 21--25
+Underfull \hbox (badness 1264) in paragraph at lines 21--25
 \T1/ptm/m/n/12 two-frame stereo correspondence algorithms.  URL $\T1/pcr/m/n/12
  https : / / vision .
  []
 
 
-Underfull \hbox (badness 7540) in paragraph at lines 32--36
+Underfull \hbox (badness 1383) in paragraph at lines 32--38
+[]\T1/ptm/m/n/12 Antonio Ilinovi¢.  U£enje korespodencijskg ugraživanja za ster
+eoskopsku
+ []
+
+
+Underfull \hbox (badness 6078) in paragraph at lines 40--44
 []\T1/ptm/m/n/12 Alfred Wong Jonathon Price.  Stochastic gradient descent.  URL
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 32--36
+Underfull \hbox (badness 10000) in paragraph at lines 40--44
 \T1/pcr/m/n/12 https : / / optimization . cbe . cornell . edu / index . php ? t
 itle =
  []
 
 
-Underfull \hbox (badness 1622) in paragraph at lines 38--43
+Underfull \hbox (badness 1147) in paragraph at lines 46--51
 []\T1/ptm/m/n/12 Yann LeCun Jure šbontar.  Computing the stereo matching cost w
 ith a
  []
 
-LaTeX Info: Symbol \textasciicaron not provided by
-            font family ptm in TS1 encoding.
-            Default family used instead on input line 61.
-[27
+[28
 
-]) [28] [29] (zavrsni.aux)
+]
+Underfull \hbox (badness 1622) in paragraph at lines 68--74
+[]\T1/ptm/m/n/12 Marin Or²i¢.  U£enje korespondencijske metrike za gustu stereo
+skopsku
+ []
+
+) [29] [30] (zavrsni.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 9080 strings out of 480844
- 139180 string characters out of 2903846
- 472756 words of memory out of 3000000
- 26542 multiletter control sequences out of 15000+600000
- 467405 words of font info for 102 fonts, out of 8000000 for 9000
+ 9083 strings out of 480844
+ 139239 string characters out of 2903846
+ 472796 words of memory out of 3000000
+ 26546 multiletter control sequences out of 15000+600000
+ 467068 words of font info for 101 fonts, out of 8000000 for 9000
  0 hyphenation exceptions out of 8191
  72i,17n,80p,920b,434s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/dua/.miktex/texmfs/data/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1200.p
-k>{/home/dua/.miktex/texmfs/install/fonts/enc/dvips/base/8r.enc}</home/dua/.mik
+{/home/dua/.miktex/texmfs/install/fonts/enc/dvips/base/8r.enc}</home/dua/.mik
 tex/texmfs/install/fonts/type1/public/amsfonts/cm/cmex10.pfb></home/dua/.miktex
 /texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pfb></home/dua/.miktex/te
 xmfs/install/fonts/type1/public/amsfonts/cm/cmmi12.pfb></home/dua/.miktex/texmf
@@ -1108,9 +1143,9 @@ w/courier/ucrr8a.pfb></home/dua/.miktex/texmfs/install/fonts/type1/urw/helvetic
 fb></home/dua/.miktex/texmfs/install/fonts/type1/urw/times/utmb8a.pfb></home/du
 a/.miktex/texmfs/install/fonts/type1/urw/times/utmr8a.pfb></home/dua/.miktex/te
 xmfs/install/fonts/type1/urw/times/utmri8a.pfb>
-Output written on zavrsni.pdf (34 pages, 2376877 bytes).
+Output written on zavrsni.pdf (35 pages, 2381166 bytes).
 PDF statistics:
- 226 PDF objects out of 1000 (max. 8388607)
+ 224 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  96 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,4 +1,4 @@
-\begin{thebibliography}{9}
+\begin{thebibliography}{10}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -27,6 +27,14 @@ Richard~Szeliski Daniel~Scharstein.
 Siniša Šegvić.
 \newblock Neslužbene stranice predmeta duboko učenje 1.
 \newblock URL \url{http://www.zemris.fer.hr/~ssegvic/du/}.
+
+\bibitem[Ilinović(2022)]{ilinovic}
+Antonio Ilinović.
+\newblock Učenje korespodencijskg ugrađivanja za stereoskopsku
+  rekonstrukciju.
+\newblock 2022.
+\newblock URL
+  \url{http://www.zemris.fer.hr/~ssegvic/project/pubs/ilinovic22bs.pdf}.
 
 \bibitem[Jonathon~Price()]{sgd}
 Alfred~Wong Jonathon~Price.
@@ -58,7 +66,7 @@ Dino Kovač.
 
 \bibitem[Oršić(2017)]{orsic}
 Marin Oršić.
-\newblock Ucenje korespondencijske metrike ˇ za gustu stereoskopsku
+\newblock Učenje korespondencijske metrike za gustu stereoskopsku
   rekonstrukciju.
 \newblock 2017.
 \newblock URL

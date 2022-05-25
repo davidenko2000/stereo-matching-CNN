@@ -22,6 +22,6 @@
 \contentsline {section}{\numberline {5.1}Ugrađivanje okana u metrički prostor}{19}{}%
 \contentsline {section}{\numberline {5.2}Učenje modela za ostvarivanje korespodencije}{21}{}%
 \contentsline {chapter}{\numberline {6}Eksperimentalni rezultati}{23}{}%
-\contentsline {chapter}{\numberline {7}Programska izvedba i vanjske biblioteke}{25}{}%
-\contentsline {chapter}{\numberline {8}Zaključak}{26}{}%
-\contentsline {chapter}{Literatura}{27}{}%
+\contentsline {chapter}{\numberline {7}Programska izvedba i vanjske biblioteke}{26}{}%
+\contentsline {chapter}{\numberline {8}Zaključak}{27}{}%
+\contentsline {chapter}{Literatura}{28}{}%
