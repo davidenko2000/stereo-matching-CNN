@@ -324,13 +324,14 @@ Opisana mjera sličnosti vektora naziva se \textit{kosinusna sličnost vektora}.
 \frac{\textbf{a}\cdot\textbf{b}}{\parallel\textbf{a}\parallel \parallel\textbf{b}\parallel}=\frac{\sum_{i}a_{i}b_{i}}{(\sum_{i}a_{i}^2)(\sum_{i}b_{i}^2)}
 \label{eq:normalizacija}
 \end{equation}
-Kako je cilj pronaći najsličnije piksele koristi se operacija $argmax$ po trećoj dimenziji. Funkcija $argmax$ će vratiti indeks najsličnijeg piksela, odnosno čija je mjera sličnosti najveća. Provedenim operacijama je nastala tzv. mapa dispariteta. Kako se u postupku ne uzima u obzir susjedstvo piksela, ovakav pristup se naziva i \textit{Winner takes all} zato što se razmatraju samo najsličniji pikseli. Na slici 6.1. prikazan je postupak izračunavanje mape dispariteta.
+Kako je cilj pronaći najsličnije piksele koristi se operacija $argmax$ po trećoj dimenziji. Funkcija $argmax$ će vratiti indeks najsličnijeg piksela, odnosno čija je mjera sličnosti najveća. Provedenim operacijama je nastala tzv. mapa dispariteta. Kako se u postupku ne uzima u obzir susjedstvo piksela, ovakav pristup se naziva i \textit{Winner takes all} zato što se razmatraju samo najsličniji pikseli. Na slici 5.1. prikazan je postupak izračunavanje mape dispariteta.
 \begin{figure}[htb]
 \centering
-\includegraphics[width = 14.5cm]{img/slika12.png}
-\caption{SLIKA MAPA DISPARITEA IZRAČUN}
+\includegraphics[width = 14.5cm]{img/disp_map.png}
+\caption{Postupak računanja mape dispariteta. Stereo par slika iz konkurentnih kamera ide na ulaz, prolazi kroz 4 kovolucijska sloja, te se na kraju izlaz normira na jedinični vektor. U zadnjem koraku se pronalaze nasličniji pikseli metodom \textit{Winner takes all}.}
 \label{fig:KITTI}
 \end{figure}
+\pagebreak
 \section{Učenje modela za ostvarivanje korespodencije}
 Prije no što se krene s učenjem potrebno je svesti piksele slika na normalnu jediničnu razdiobu. Za takvo što je potrebno izračunati srednju vrijednost $\mu$ i standardna devijacija $\sigma$, te je konačan izraz za piksele $I(x,y)$:
 \begin{equation}
@@ -346,19 +347,41 @@ Primjer za učenje sastoji od tri okna, a to su referentno okno R, pozitivno okn
 \item[•] $P = I_{D}^{PxP}(x-d-o,y)$ je negativno okno, a dobiva se horizontalnim posmakom središta  za disparitet $d$ te dodatnim nasumičnim odmakom $o$. Odmak se odabire iz intervala $[-14, -4] U [4, 14]$.
 \end{itemize}
 Na slici 6.2. prikazano je nekoliko primjera za učenje.
+
+\begin{figure}[htb]
+\centering
+\includegraphics[scale = 0.7]{img/okna.png}
+\caption{Prikaz 4 primjera za učenje. Prvi redak predstavlja referentno lijevo okno, redak ispod prikazuje čvrsti pozitiv (pozitivno okno bez nasumičnog pomaka), te zadnji redak prikazuje negativno okno.}
+\label{fig:KITTI}
+\end{figure}
+
+\pagebreak
 Tijekom postupka optimizacije minimizira se funkcija gubitka čiji je izraz dan u nastavku:
 \begin{equation}
 L(R, P, N) = max(0, m + \textbf{h}(\textbf{R}|\theta)\cdot \textbf{h}(\textbf{N}|\theta)-\textbf{h}(\textbf{R}|\theta)\cdot \textbf{h}(\textbf{P}|\theta)
 \label{eq:gubitak}
 \end{equation}
 pri čemu $h$ predstavlja izlaz modela s parametrima $\theta$. U funkciji gubitka zahtijevano je da je ugrađivanje referentnog okna sličnije ugrađivanju pozitivnog okna u odnosu na ugrađivanje negativnog okna za najmanje $m$. Pojednostavljeno rečeno, model će učiti samo na primjerima na kojima je sličnost $R$ i $P$ manja od sličnosti između $R$ i $N$ za više od $m$.\cite{orsic}
+
+\chapter{Eksperimentalni rezultati}
 \begin{figure}[htb]
 \centering
-\includegraphics[width = 14.5cm]{img/slika13.png}
-\caption{SLIKOVNA OKNA}
+\includegraphics[scale = 0.44]{img/HARDPOS_RGB.png}
+\caption{Graf prikazuje kretanje prosječnog gubitka tijekom epoha treniranja i validacije. Za učenje modela se koriste čvrsti pozitivi RGB slika, odnosno bez posmaka.}
 \label{fig:KITTI}
 \end{figure}
-\chapter{Eksperimentalni rezultati}
+\begin{figure}[htb]
+\centering
+\includegraphics[scale = 0.44]{img/LOOSE_RGB.png}
+\caption{Graf prikazuje kretanje prosječnog gubitka tijekom epoha treniranja i validacije. Za učenje modela se koriste rastreseni pozitivi RGB slika (posmaknuti za nasumičan broj u skupu {-1, 0, 1}).}
+\label{fig:KITTI}
+\end{figure}
+\begin{figure}[htb]
+\centering
+\includegraphics[scale = 0.44]{img/eval.png}
+\caption{Prikaz rekonstrukcijske točnosti modela za ugrađivanje okana u visokodimenzionalan prostor. Lijeve slike prikazuju slike iz lijeve referentne kamere. U sredini se nalaze procjenjene mape dispariteta. Zdesna se nalaze rekonstrukcijske točnosti, pri čemu su crnom bojom označeni pikseli uz nepoznat disparitet, plavom bojom pogrešno rekonstruirani pikseli, te zelenom bojom točno rekonstruirani pikseli.}
+\label{fig:KITTI}
+\end{figure}
 \chapter{Programska izvedba i vanjske biblioteke}
 \chapter{Zaključak}
 

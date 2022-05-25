@@ -1,4 +1,4 @@
-\begin{thebibliography}{7}
+\begin{thebibliography}{9}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -34,6 +34,13 @@ Alfred~Wong Jonathon~Price.
 \newblock URL
   \url{https://optimization.cbe.cornell.edu/index.php?title=Stochastic_gradient_descent}.
 
+\bibitem[Jure~Žbontar(2015)]{zbontar2}
+Yann~LeCun Jure~Žbontar.
+\newblock Computing the stereo matching cost with a convolutional neural
+  network.
+\newblock 2015.
+\newblock URL \url{https://ieeexplore.ieee.org/document/7298767/}.
+
 \bibitem[Jure~Žbontar(2016)]{zbontar}
 Yann~LeCun Jure~Žbontar.
 \newblock Stereo matching by training a convolutional neural network to compare
@@ -48,5 +55,13 @@ Dino Kovač.
 \newblock 2015.
 \newblock URL
   \url{http://www.zemris.fer.hr/~ssegvic/project/pubs/kovac15ms.pdf}.
+
+\bibitem[Oršić(2017)]{orsic}
+Marin Oršić.
+\newblock Ucenje korespondencijske metrike ˇ za gustu stereoskopsku
+  rekonstrukciju.
+\newblock 2017.
+\newblock URL
+  \url{http://www.zemris.fer.hr/~ssegvic/project/pubs/orsic17ms.pdf}.
 
 \end{thebibliography}
