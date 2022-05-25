@@ -117,11 +117,11 @@ U ranim počecima duboko učenja došlo se do ideje potpuno povezanih modela. Je
 \begin{figure}[htb]
 \centering
 \includegraphics[width = 14.5cm]{img/slika5.png}
-\caption{Jednostavni perceptron}
+\caption{Jednostavni TLU perceptron}
 \label{fig:Perceptron}
 \end{figure}
 \newpage
-Perceptron je prvi definirao Frank Rosenblatt. Na slici 3.1. prikazan je jednostavni perceptron. Perceptron ima više binarnih ulaza koji su označeni s $x_{1}$, $x_{2}$ i $x_{3}$, te proizvodi binarni izlaz. Rosenblatt je, kako bi odredio izlaz, definirao težine (u ovom slučaju $w_{1}$, $w_{2}$ i $w_{3}$). Težinama se mogu opisati doprinosi jednog neuorona na drugi, odnosno koliko jedan utječe na drugog. Ovime je izlaz neurona definiran sumom umnoška težina i binarnih ulaza te praga s kojim s uspoređuje:
+TLU perceptron su prvi definirali McCulloc i Pitts. Na slici 3.1. prikazan je jednostavni TLU perceptron. TLU perceptron ima više binarnih ulaza koji su označeni s $x_{1}$, $x_{2}$ i $x_{3}$, te proizvodi binarni izlaz. Rosenblatt je, kako bi odredio izlaz, definirao težine (u ovom slučaju $w_{1}$, $w_{2}$ i $w_{3}$). Težinama se mogu opisati doprinosi jednog neurona na drugi, odnosno koliko jedan utječe na drugog. Ovime je izlaz neurona definiran sumom umnoška težina i binarnih ulaza te praga s kojim s uspoređuje:
 \begin{subequations}
 \begin{empheq}[left=\ \empheqlbrace]{align}
 0, {\sum_{k=1}^{n}} w_kx_k \le prag \\
@@ -303,7 +303,7 @@ Nelinearnost se onda primijenjuje na tako normaliziranom izlazu.
 \chapter{Podatkovni skup za učenje}
 Kako je već rečeno, u ovom radu učenje je nadzirano. Podatkovni skup KITTI jedan je od skupova koji se koriste u učenju postupka stereoskopske rekonstrukcije.U sljedećem pododjeljku bit će predstavljen podatkovni skup KITTI 2015, njegove specifičnosti, te postupci pripreme podataka.
 \section{Podatkovni skup KITTI 2015}
-Podatkovni skup KITTI 2015, skup je od 200 stereo parova slika za koje su laserski izmjerene mape dispariteta. Stereo par slika je unaprijed kalibriran i rektificiran. Primjer uz odgovarajuće disparitete prikazan je na slici 4.1. Podatkovni skup je često korišten u postupcima stereoskopske rekonstrukcije za autonomnu vožnju.Podatkovni skup je podijeljen na skup za učenje kojeg čini 60\% slika, sljedećih 20\% čini skup za validaciju, te preostalih 20\% čini skup za testiranje.\\
+Podatkovni skup KITTI 2015, skup je od 200 stereo parova slika za koje su laserski izmjerene mape dispariteta. Stereo par slika je unaprijed kalibriran i rektificiran. Primjer uz odgovarajuće disparitete prikazan je na slici 4.1. Podatkovni skup je često korišten u postupcima stereoskopske rekonstrukcije za autonomnu vožnju.Podatkovni skup je podijeljen na skup za učenje kojeg čini 80\% slika, sljedećih 20\% čini skup za validaciju.\\
 Mape dispariteta su vrlo rijetke, odnosno dispariteti su izmjereni laserski za manji podskup piksela. Takve mape će na mjestima piksela za koje nije izmjeren disparitet imati vrijednost nula. Primjer takvih piksela su oni koji prikazuju udaljene objekte, kao što je nebo. Takvo mjerenje proizlazi iz toga što je disparitet obrnuto proporcionalan udaljenosti, te poprima vrijednost nula u beskonačnosti. \\
 Također napravljena je intervencija na područjima slike na kojima se nalazi automobil. Intervencija se sastojala od progušćivanja dispariteta na mjestima automobila. Ova intervencija je od velike važnosti rekostrukcijskim algoritmima jer se na automobilu nalaze refleksivne površine poput stakla koje u konkurentnim stereo kamerama mogu izgledati drugačije.\cite{zbontar}
 \begin{figure}[htb]
@@ -313,8 +313,51 @@ Također napravljena je intervencija na područjima slike na kojima se nalazi au
 \label{fig:KITTI}
 \end{figure}
 \chapter{Duboko učenje u kontekstu stereoskopske rekonstrukcije}
+U ovom poglavlju bit će predstavljena arhitektura dubokog modela koji se koristi za stereoskopsku rekonstrukciju. Metoda koristi ugrađivanje okana u visokodimenzionalan metrički prostor, pri čemu je moguće uspoređivanje po sličnosti koje koristimo u traženju korespodentnih piksela.
 \section{Ugrađivanje okana u metrički prostor}
+Stereo algoritmi zahtijevaju robusne metrike s obzirom na šum, dok s druge strane tražimo da metrika na pikselima bez teksture nosi određenu informaciju. U ovom radu razmatran duboki model koji uči na slikama s poznatim disparitetima zadovoljava uvjete stereo algoritama.\\
+U ovom radu se koristi duboki model za ugrađivanje slika u visokodimenzionalan prostor.\citep{zbontar2} Duboki model sastoji se od 4 konvolucijska sloja, pri čemu svaki sloj ima 64 značajke (engl. features). Za konvoluciju je korištena jezgra veličine $3 x 3$. Na ulaz modela dovodimo slikovno okno koje je dimenzija $P x P$, dok je izlaz modela ugrađivanje okna u 64 dimenzionalan vektor. Ono što konvolucijskoj arhitekturi daje prednost je što je moguće ugrađivanje provesti u jednom prolazu nad cijelom slikom. Prilikom takvog ugrađivanja koristi se nadopunjavanje nulama da se dobije izlaz istih prvih dviju dimenzija,nadalje ulaz je slika dimenzija $W x H$, a izlaz ugrađivanje čije su dimenzije $W x H x 64$. Kako bismo mogli koristi kosinusnu sličnost (objašnjeno kasnije), potrebno je normirati izlaze na jedinični vektor duž osi značajki.\pagebreak
+\\
+Nakon što je dubokim modelom ostvareno ugrađivanje okana u visokodimenzionalan prostor, moguće je provesti izračun mape dispariteta. Razmatramo jedan par slika $I_{L}$ i $I_{D}$. Provedenim ugrađivanjem nastaju $E_{L}$ i $E_{D}$ spomenutih dimenzija $W x H x 64$. Nad takvim reprezentacijama tražimo korespodentne piksele. Kako je već spomenuto slike su rektificirane, što nam omogućuje usporedbu samo po horizontalnoj ulici. U ovom radu razmatrat će se dispariteti u intervalu $[0...D]$, pri čemu je $D$ maksimalan disparitet u skupu KITTI i iznosi 229. Kako je lijeva slika referentna, desna ugrađivanja posmičemo za disparitete u razmatranom intervalu uzduž horizontalne osi. Nakon posmaka vrši se skalarni umnožak vektora na odgovarajućim indeksima. Takvim množenjem dobiva se vektor dimenzija $W x H x D$, na čijim trećim dimenzijama se nalaze mjere sličnosti piksela.\\
+Opisana mjera sličnosti vektora naziva se \textit{kosinusna sličnost vektora}. U nastavku je dan matematički izraz takve mjere sličnosti:
+\begin{equation}
+\frac{\textbf{a}\cdot\textbf{b}}{\parallel\textbf{a}\parallel \parallel\textbf{b}\parallel}=\frac{\sum_{i}a_{i}b_{i}}{(\sum_{i}a_{i}^2)(\sum_{i}b_{i}^2)}
+\label{eq:normalizacija}
+\end{equation}
+Kako je cilj pronaći najsličnije piksele koristi se operacija $argmax$ po trećoj dimenziji. Funkcija $argmax$ će vratiti indeks najsličnijeg piksela, odnosno čija je mjera sličnosti najveća. Provedenim operacijama je nastala tzv. mapa dispariteta. Kako se u postupku ne uzima u obzir susjedstvo piksela, ovakav pristup se naziva i \textit{Winner takes all} zato što se razmatraju samo najsličniji pikseli. Na slici 6.1. prikazan je postupak izračunavanje mape dispariteta.
+\begin{figure}[htb]
+\centering
+\includegraphics[width = 14.5cm]{img/slika12.png}
+\caption{SLIKA MAPA DISPARITEA IZRAČUN}
+\label{fig:KITTI}
+\end{figure}
 \section{Učenje modela za ostvarivanje korespodencije}
+Prije no što se krene s učenjem potrebno je svesti piksele slika na normalnu jediničnu razdiobu. Za takvo što je potrebno izračunati srednju vrijednost $\mu$ i standardna devijacija $\sigma$, te je konačan izraz za piksele $I(x,y)$:
+\begin{equation}
+I'(x,y)= \frac{I(x,y) - \mu}{\sigma}
+\label{eq:normalizacija}
+\end{equation}
+Nakon što je izvršena normalizacija izdvajaju se okna nad kojima će spomenuti duboki model učiti.
+Ukupan skup sastoji se od oko 16 milijuna primjera, a za svaki od njih poznat je disparitet.
+Primjer za učenje sastoji od tri okna, a to su referentno okno R, pozitivno okno P i negativno okno N. Referentno i pozitivno okno čine međusobno sličan par, dok referetno i negativno čine manje sličan par. U nastavku je objašnjena ekstrakcija okna:
+\begin{itemize}
+\item[•] $R = I_{L}^{PxP}(x,y)$ je okno lijeve slike i predstavlja referentno okno
+\item[•] $P = I_{D}^{PxP}(x-d,y)$ je pozitivno okno, a dobiva se horizontalnim posmakom središta za poznati disparitet $d$
+\item[•] $P = I_{D}^{PxP}(x-d-o,y)$ je negativno okno, a dobiva se horizontalnim posmakom središta  za disparitet $d$ te dodatnim nasumičnim odmakom $o$. Odmak se odabire iz intervala $[-14, -4] U [4, 14]$.
+\end{itemize}
+Na slici 6.2. prikazano je nekoliko primjera za učenje.
+Tijekom postupka optimizacije minimizira se funkcija gubitka čiji je izraz dan u nastavku:
+\begin{equation}
+L(R, P, N) = max(0, m + \textbf{h}(\textbf{R}|\theta)\cdot \textbf{h}(\textbf{N}|\theta)-\textbf{h}(\textbf{R}|\theta)\cdot \textbf{h}(\textbf{P}|\theta)
+\label{eq:gubitak}
+\end{equation}
+pri čemu $h$ predstavlja izlaz modela s parametrima $\theta$. U funkciji gubitka zahtijevano je da je ugrađivanje referentnog okna sličnije ugrađivanju pozitivnog okna u odnosu na ugrađivanje negativnog okna za najmanje $m$. Pojednostavljeno rečeno, model će učiti samo na primjerima na kojima je sličnost $R$ i $P$ manja od sličnosti između $R$ i $N$ za više od $m$.\cite{orsic}
+\begin{figure}[htb]
+\centering
+\includegraphics[width = 14.5cm]{img/slika13.png}
+\caption{SLIKOVNA OKNA}
+\label{fig:KITTI}
+\end{figure}
 \chapter{Eksperimentalni rezultati}
 \chapter{Programska izvedba i vanjske biblioteke}
 \chapter{Zaključak}

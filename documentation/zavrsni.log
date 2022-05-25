@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.6) (preloaded format=pdflatex 2021.10.28)  15 MAY 2022 19:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.6) (preloaded format=pdflatex 2021.10.28)  23 MAY 2022 20:38
 entering extended mode
 **./zavrsni.tex
 (zavrsni.tex
@@ -426,6 +426,15 @@ LaTeX Warning: Label `eq:Aktivacija' multiply defined.
 
 
 LaTeX Warning: Label `eq:Aktivacija' multiply defined.
+
+
+LaTeX Warning: Label `eq:normalizacija' multiply defined.
+
+
+LaTeX Warning: Label `fig:KITTI' multiply defined.
+
+
+LaTeX Warning: Label `fig:KITTI' multiply defined.
 
 )
 \openout1 = `zavrsni.aux'.
@@ -940,26 +949,91 @@ Package pdftex.def Info: img/slika11.png  used on input line 311.
 
 ] [18 <./img/slika11.png>]
 Poglavlje 5.
+
+Overfull \hbox (5.12723pt too wide) in paragraph at lines 316--317
+\T1/ptm/m/n/12 stereoskopsku rekonstrukciju. Metoda koristi ugraživanje okana u
+ visokodimenzionalan
+ []
+
+
+Overfull \hbox (7.23878pt too wide) in paragraph at lines 316--317
+\T1/ptm/m/n/12 metri£ki prostor, pri £emu je mogu¢e usporeživanje po sli£nosti 
+koje koristimo u traºenju
+ []
+
+
+Package natbib Warning: Citation `zbontar2' on page 19 undefined on input line 
+319.
+
+
+Overfull \hbox (11.01855pt too wide) in paragraph at lines 318--323
+\T1/ptm/m/n/12 u skupu KITTI i iznosi 229. Kako je lijeva slika referentna, des
+na ugraživanja posmi£emo
+ []
+
 [19
 
 ]
+
+LaTeX Warning: File `img/slika12.png' not found on input line 330.
+
+
+! Package pdftex.def Error: File `img/slika12.png' not found: using draft setti
+ng.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.330 ...graphics[width = 14.5cm]{img/slika12.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 33
+0.
+(/home/dua/.miktex/texmfs/install/tex/latex/psnfss/t1pcr.fd
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
+)
+Overfull \hbox (4.54044pt too wide) in paragraph at lines 335--336
+\T1/ptm/m/n/12 razdiobu. Za takvo ²to je potrebno izra£unati srednju vrijednost
+ $\OML/cmm/m/it/12 $ \T1/ptm/m/n/12 i standardna devijacija
+ []
+
+[20]
+
+Package natbib Warning: Citation `orsic' on page 21 undefined on input line 354
+.
+
+
+LaTeX Warning: File `img/slika13.png' not found on input line 357.
+
+
+! Package pdftex.def Error: File `img/slika13.png' not found: using draft setti
+ng.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.357 ...graphics[width = 14.5cm]{img/slika13.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[21] [22]
 Poglavlje 6.
-[20
+[23
 
 ]
 Poglavlje 7.
-[21
+[24
 
 ]
 Poglavlje 8.
-(zavrsni.bbl [22
+(zavrsni.bbl [25
 
 ]
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 11
-.
- (/home/dua/.miktex/texmfs/install/tex/latex/psnfss/t1pcr.fd
-File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-)
 Underfull \hbox (badness 10000) in paragraph at lines 14--19
 []\T1/ptm/m/n/12 Nikola Bunjevac.  Gusta stereoskopska rekonstrukcija polugloba
 lnim
@@ -983,21 +1057,25 @@ Underfull \hbox (badness 10000) in paragraph at lines 32--36
 itle =
  []
 
-) [23
+) [26
 
-] [24] (zavrsni.aux)
+]
+
+Package natbib Warning: There were undefined citations.
+
+[27] (zavrsni.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 9032 strings out of 480844
- 138333 string characters out of 2903846
- 471676 words of memory out of 3000000
- 26501 multiletter control sequences out of 15000+600000
+ 9110 strings out of 480844
+ 139961 string characters out of 2903846
+ 472698 words of memory out of 3000000
+ 26563 multiletter control sequences out of 15000+600000
  464220 words of font info for 99 fonts, out of 8000000 for 9000
  0 hyphenation exceptions out of 8191
- 72i,17n,80p,864b,434s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 72i,17n,80p,920b,434s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/home/dua/.miktex/texmfs/install/fonts/enc/dvips/base/8r.enc}</home/dua/.mik
 tex/texmfs/install/fonts/type1/public/amsfonts/cm/cmex10.pfb></home/dua/.miktex
 /texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pfb></home/dua/.miktex/te
@@ -1013,9 +1091,9 @@ w/courier/ucrr8a.pfb></home/dua/.miktex/texmfs/install/fonts/type1/urw/helvetic
 fb></home/dua/.miktex/texmfs/install/fonts/type1/urw/times/utmb8a.pfb></home/du
 a/.miktex/texmfs/install/fonts/type1/urw/times/utmr8a.pfb></home/dua/.miktex/te
 xmfs/install/fonts/type1/urw/times/utmri8a.pfb>
-Output written on zavrsni.pdf (29 pages, 1548465 bytes).
+Output written on zavrsni.pdf (32 pages, 1561017 bytes).
 PDF statistics:
- 200 PDF objects out of 1000 (max. 8388607)
+ 210 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  71 words of extra memory for PDF output out of 10000 (max. 10000000)
 
