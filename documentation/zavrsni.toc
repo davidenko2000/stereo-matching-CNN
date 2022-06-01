@@ -20,7 +20,7 @@
 \contentsline {section}{\numberline {4.1}Podatkovni skup KITTI 2015}{17}{}%
 \contentsline {chapter}{\numberline {5}Duboko učenje u kontekstu stereoskopske rekonstrukcije}{19}{}%
 \contentsline {section}{\numberline {5.1}Ugrađivanje okana u metrički prostor}{19}{}%
-\contentsline {section}{\numberline {5.2}Učenje modela za ostvarivanje korespodencije}{21}{}%
+\contentsline {section}{\numberline {5.2}Učenje modela za ostvarivanje korespondencije}{21}{}%
 \contentsline {chapter}{\numberline {6}Eksperimentalni rezultati}{23}{}%
 \contentsline {chapter}{\numberline {7}Programska izvedba i vanjske biblioteke}{26}{}%
 \contentsline {chapter}{\numberline {8}Zaključak}{27}{}%

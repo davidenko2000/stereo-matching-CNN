@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.6) (preloaded format=pdflatex 2021.10.28)  26 MAY 2022 19:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.6) (preloaded format=pdflatex 2021.10.28)  1 JUN 2022 14:35
 entering extended mode
 **./zavrsni.tex
 (zavrsni.tex
@@ -599,30 +599,6 @@ Overfull \hbox (7.62279pt too wide) in paragraph at lines 28--29
  []
 
 
-Overfull \hbox (13.81491pt too wide) in paragraph at lines 28--29
-\T1/ptm/m/n/12 klasi£ne metode za odreživanje korespodencijskih metrika, no poj
-avom snaºnijih ra£unala
- []
-
-
-Overfull \hbox (2.40298pt too wide) in paragraph at lines 28--29
-\T1/ptm/m/n/12 iskori²teno je duboko u£enje kao alat kojim je mogu¢e korespoden
-cijske metrike nau£iti
- []
-
-
-Overfull \hbox (23.3549pt too wide) in paragraph at lines 28--29
-\T1/ptm/m/n/12 na stvarnim podacima. Za potrebe metoda temeljenih na ugraživanj
-u u visokodimenzionalni
- []
-
-
-Overfull \hbox (15.75883pt too wide) in paragraph at lines 28--29
-\T1/ptm/m/n/12 prostor potrebne su rektificirane stereoskopske slike s poznatom
- dubinskom informacijom. 
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 28--29
 
  []
@@ -634,9 +610,15 @@ kalibracija, rektifikacija
  []
 
 
-Overfull \hbox (7.57474pt too wide) in paragraph at lines 30--31
-\T1/ptm/m/n/12 i algoritmi kori²teni za ostvarivanje korespodencije. Zatim defi
-nirani su osnovni pojmovi
+Overfull \hbox (4.25099pt too wide) in paragraph at lines 30--31
+\T1/ptm/m/n/12 validacije. Opisan je model kojim je ostvareno korespondencijsko
+ ugraživanje slikovnih
+ []
+
+
+Overfull \hbox (18.12318pt too wide) in paragraph at lines 30--31
+\T1/ptm/m/n/12 postupak u£enja takvog modela, te eksperimentalno vrednovanje re
+konstrukcijske to£nosti. 
  []
 
 [1
@@ -674,15 +656,15 @@ vojstva koja su zajedni£ka
  []
 
 
-Overfull \hbox (6.5431pt too wide) in paragraph at lines 46--55
-\T1/ptm/m/n/12 korespodentnih to£aka koje u ovom slu£aju treba traºiti samo duº
- jedne linije, epipolarne
+Overfull \hbox (12.5431pt too wide) in paragraph at lines 46--55
+\T1/ptm/m/n/12 korespondentnih to£aka koje u ovom slu£aju treba traºiti samo du
+º jedne linije, epipolarne
  []
 
 
-Overfull \hbox (28.56209pt too wide) in paragraph at lines 46--55
-\T1/ptm/m/n/12 linije. Problem je sveden na jednu dimenziju. Kalibracijom se ri
-je²ava problem nesavr²enosti
+Overfull \hbox (25.22621pt too wide) in paragraph at lines 46--55
+\T1/ptm/m/n/12 linije. Problem je sveden na jednu dimenziju. Kalibracijom se rj
+e²ava problem nesavr²enosti
  []
 
 
@@ -726,9 +708,15 @@ File: img/slika4.png Graphic file (type png)
 Package pdftex.def Info: img/slika4.png  used on input line 83.
 (pdftex.def)             Requested size: 412.56496pt x 257.5497pt.
 
-Overfull \hbox (6.08727pt too wide) in paragraph at lines 78--88
-\T1/ptm/m/n/12 fokalna udaljenost kamere. Iz jednadºbe 2.2 je vidljiva obrnuta 
-proporcionalnost izmežu
+Overfull \hbox (22.76682pt too wide) in paragraph at lines 78--88
+\T1/ptm/m/n/12 udaljenost kamere. Iz jednadºbe 2.2 je vidljiva obrnuta proporci
+onalnost izmežu udaljenosti
+ []
+
+
+Overfull \hbox (3.92456pt too wide) in paragraph at lines 78--88
+\T1/ptm/m/n/12 korespondentne piksele jednaka. Disparitet je ozna£en slovom $\O
+ML/cmm/m/it/12 d$ \T1/ptm/m/n/12 i prikazuje horizontalni
  []
 
 
@@ -747,15 +735,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 78--88
  []
 
 [5 <./img/slika4.png>]
+Overfull \hbox (0.75912pt too wide) in paragraph at lines 89--92
+\T1/ptm/m/n/12 Postupak stereoskopske korespondencije je zapravo postupak prona
+laºenja istih piksela
+ []
+
+
 Overfull \hbox (3.20767pt too wide) in paragraph at lines 89--92
 \T1/ptm/m/n/12 u mežusobno konkurentnim kamerama koji odgovaraju istoj to£ki u 
 trodimenzionalnom
  []
 
 
-Overfull \hbox (9.0748pt too wide) in paragraph at lines 89--92
+Overfull \hbox (15.0748pt too wide) in paragraph at lines 89--92
 \T1/ptm/m/n/12 rijetke ne izra£unavaju disparitete za sve piksele, dok guste to
- rade. Guste korespodencije
+ rade. Guste korespondencije
  []
 
 
@@ -802,12 +796,6 @@ File: img/slika6.png Graphic file (type png)
 <use img/slika6.png>
 Package pdftex.def Info: img/slika6.png  used on input line 161.
 (pdftex.def)             Requested size: 304.1386pt x 184.28992pt.
-
-Overfull \hbox (3.79518pt too wide) in paragraph at lines 157--167
-\T1/ptm/m/n/12 nestanja gradijenata (engl. \T1/ptm/m/it/12 vanishing gradient p
-roblem\T1/ptm/m/n/12 ) koji govori da gradijenti postaju
- []
-
 
 Underfull \hbox (badness 10000) in paragraph at lines 157--167
 
@@ -916,12 +904,6 @@ osljedicu imaju nepronalazak
  []
 
 
-Overfull \hbox (2.72739pt too wide) in paragraph at lines 271--273
-\T1/ptm/m/n/12 zalet takožer uzima u obzir i prethodno aºuriranje, pomnoºeno sa
- faktorom umanjivanja
- []
-
-
 Overfull \hbox (24.68684pt too wide) in paragraph at lines 278--279
 \T1/ptm/m/n/12 metodologije gradijentnog spusta zaleta i RMSprop algoritma ubrz
 ava pronalazak globalnog
@@ -974,9 +956,9 @@ koje koristimo u traºenju
  []
 
 
-Overfull \hbox (11.01855pt too wide) in paragraph at lines 318--323
-\T1/ptm/m/n/12 u skupu KITTI i iznosi 229. Kako je lijeva slika referentna, des
-na ugraživanja posmi£emo
+Overfull \hbox (0.35039pt too wide) in paragraph at lines 318--323
+\T1/ptm/m/n/12 disparitet u skupu KITTI i iznosi 229. Kako je lijeva slika refe
+rentna, desna ugraživanja
  []
 
 [19
@@ -1001,9 +983,15 @@ Package pdftex.def Info: img/okna.png  used on input line 353.
 [21 <./img/okna.png>] [22]
 Poglavlje 6.
 
-Overfull \hbox (1.46606pt too wide) in paragraph at lines 367--370
-\T1/ptm/m/n/12 Kvalitetu rekonstrukcijske to£nosti ocjenuje se na slikama za ko
-je su poznati dispariteti.
+Overfull \hbox (4.80194pt too wide) in paragraph at lines 367--370
+\T1/ptm/m/n/12 Kvalitetu rekonstrukcijske to£nosti ocjenjuje se na slikama za k
+oje su poznati dispariteti.
+ []
+
+
+Overfull \hbox (1.11981pt too wide) in paragraph at lines 367--370
+\T1/ptm/m/n/12 Svi eksperimenti provedeni su na predstavljenom skupu KITTI. Za 
+to£no rekonstruirani
  []
 
 [23
@@ -1050,22 +1038,64 @@ lijeve referentne kamere.
 [25 <./img/val.png> <./img/eval.png>]
 Poglavlje 7.
 
-Overfull \hbox (1.62407pt too wide) in paragraph at lines 418--421
+Overfull \hbox (1.62407pt too wide) in paragraph at lines 418--419
 \T1/ptm/m/n/12 kori²teno je radno okruºenje PyTorch. Ovo okruºenje nudi velik s
 pektar alata i podr²ke,
  []
 
 
-Overfull \hbox (1.41905pt too wide) in paragraph at lines 418--421
-\T1/ptm/m/n/12 Podatkovni skup KITTI 2015 uzet je s javno dostupne stranice u v
-lasni²tvu kolaboracije
+Overfull \hbox (12.28716pt too wide) in paragraph at lines 422--423
+[]\T1/ptm/m/n/12 Za proces u£enja, validacije i testiranja kori²tena je platfor
+ma Colab Pro u kombinaciji
+ []
+
+
+Overfull \hbox (19.04387pt too wide) in paragraph at lines 424--425
+[]\T1/ptm/m/n/12 Podatkovni skup KITTI 2015 uzet je s javno dostupne stranice u
+ vlasni²tvu kolaboracije
  []
 
 [26
 
 ]
 Poglavlje 8.
-(zavrsni.bbl [27
+
+Overfull \hbox (20.39925pt too wide) in paragraph at lines 428--429
+[]\T1/ptm/m/n/12 U okviru rada predstavljeni su glavni koncepti kori²teni u ste
+reoskopskoj rekonstrukciji,
+ []
+
+
+Overfull \hbox (30.3499pt too wide) in paragraph at lines 428--429
+\T1/ptm/m/n/12 ²to uklju£uje epipolarnu geometriju, disparitet i same algoritme
+ stereoskopske rekonstrukcije.
+ []
+
+
+Overfull \hbox (3.26682pt too wide) in paragraph at lines 428--429
+\T1/ptm/m/n/12 Nastavno na to predstavljena je arhitektura modela, te algoritmi
+ka ugraživanja slikovnih
+ []
+
+
+Overfull \hbox (9.74687pt too wide) in paragraph at lines 430--431
+\T1/ptm/m/n/12 da korespondencijka metrika slikovnih okana daje dobre rezultate
+ na mjestima postojanih
+ []
+
+
+Overfull \hbox (6.51859pt too wide) in paragraph at lines 430--431
+\T1/ptm/m/n/12 tekstura dok se lo²e pona²a na podru£jima slika bez teksture, te
+ podru£jima s releksivnim
+ []
+
+(zavrsni.bbl
+Overfull \hbox (10.83632pt too wide) in paragraph at lines 432--1
+[]\T1/ptm/m/n/12 Nastavno na ovaj rad, predlaºe se kori²tenje samonadziranog u£
+enja, ²to bi omogu¢ilo
+ []
+
+[27
 
 ]
 LaTeX Font Info:    Trying to load font information for T1+pcr on input line 11
@@ -1116,7 +1146,13 @@ Underfull \hbox (badness 1622) in paragraph at lines 68--74
 skopsku
  []
 
-) [29] [30] (zavrsni.aux)
+) [29]
+Overfull \hbox (15.93594pt too wide) in paragraph at lines 445--447
+[]\T1/ptm/m/n/12 The correspondence metric of image patches is one of the metho
+ds used in stereoscopic
+ []
+
+[30] (zavrsni.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -1128,7 +1164,7 @@ Here is how much of TeX's memory you used:
  26552 multiletter control sequences out of 15000+600000
  467068 words of font info for 101 fonts, out of 8000000 for 9000
  0 hyphenation exceptions out of 8191
- 72i,17n,80p,920b,434s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 72i,17n,80p,921b,434s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/home/dua/.miktex/texmfs/install/fonts/enc/dvips/base/8r.enc}</home/dua/.mik
 tex/texmfs/install/fonts/type1/public/amsfonts/cm/cmex10.pfb></home/dua/.miktex
 /texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pfb></home/dua/.miktex/te
@@ -1144,7 +1180,7 @@ w/courier/ucrr8a.pfb></home/dua/.miktex/texmfs/install/fonts/type1/urw/helvetic
 fb></home/dua/.miktex/texmfs/install/fonts/type1/urw/times/utmb8a.pfb></home/du
 a/.miktex/texmfs/install/fonts/type1/urw/times/utmr8a.pfb></home/dua/.miktex/te
 xmfs/install/fonts/type1/urw/times/utmri8a.pfb>
-Output written on zavrsni.pdf (35 pages, 2400603 bytes).
+Output written on zavrsni.pdf (35 pages, 2403288 bytes).
 PDF statistics:
  227 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
