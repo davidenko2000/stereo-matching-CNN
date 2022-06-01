@@ -20,18 +20,18 @@
 \includepdf[pages=-]{izvornik.pdf}
 
 % Dodavanje zahvale ili prazne stranice. Ako ne želite dodati zahvalu, naredbu ostavite radi prazne stranice.
-\zahvala{Zahvaljujem mentoru prof.~dr.~sc.~Siniši Šegviću, na savjetima i ukazanoj pomoći. Zahvaljujem kolegi Antoniu Ilinoviću na diskusijama i pomoći tijekom izrade rada. Također, zahvaljujem svojoj obitelji, prijateljima i kolegama na potpori tijekom mojeg dosadašnjeg obrazovanja.}
+\zahvala{Zahvaljujem mentoru prof.~dr.~sc.~Siniši Šegviću na savjetima i ukazanoj pomoći. Zahvaljujem kolegi Antoniu Ilinoviću na diskusijama i pomoći tijekom izrade rada. Također, zahvaljujem svojoj obitelji, prijateljima i kolegama na potpori tijekom mojeg dosadašnjeg obrazovanja.}
 
 \tableofcontents
 
 \chapter{Uvod}
-Računalni vid kao jedna od temeljnih grana umjetne inteligencije omogućava računalima da izluče značajnu informaciju iz slika, videa ili sličnih vizualnih ulaza. Područje stereoskopske rekonstrukcije ima za cilj ostvariti stvaran trodimenzionalan položaj točaka koje su promatrane u dvije ili više slika, te kao takvo ima vrlo široke primjene uključujući one za određivanje sličnosti slikovnih okana. Kroz povijest postojale su klasične metode za određivanje korespondencijskih metrika, no pojavom snažnijih računala iskorišteno je duboko učenje kao alat kojim je moguće korespondencijske metrike naučiti na stvarnim podacima. Za potrebe metoda temeljenih na ugrađivanju u visokodimenzionalni prostor potrebne su rektificirane stereoskopske slike s poznatom dubinskom informacijom.\\
+Računalni vid kao jedna od temeljnih grana umjetne inteligencije omogućava računalima da izluče značajnu informaciju iz slika, videa ili sličnih vizualnih ulaza. Područje stereoskopske rekonstrukcije ima za cilj ostvariti stvaran trodimenzionalan položaj točaka koje su promatrane u dvije ili više slika, te kao takvo ima vrlo široke primjene uključujući one za određivanje sličnosti slikovnih okana. Kroz povijest postojale su klasične metode za određivanje korespondencijskih metrika, no pojavom snažnijih računala iskorišteno je duboko učenje kao alat kojim je moguće korespondencijske metrike naučiti na stvarnim podacima. Za potrebe metoda temeljenih na ugrađivanju u visokodimenzionalni prostor potrebne su rektificirane stereoskopske slike s poznatom dubinskom informacijom.
 
-U okviru ovog radu opisana je geometrija stereoskopskog para, kalibracija, rektifikacija i algoritmi korišteni za ostvarivanje korespondencije. Zatim definirani su osnovni pojmovi u dubokom učenju, te postupci korišteni u dubokom učenju uz memorijske zahtjeve. Predstavljen je podatkovni skup na kojem su izvršeni postupci treniranja i validacije. Opisan je model kojim je ostvareno korespondencijsko ugrađivanje slikovnih okana, koji su korišteni u stereoskopskoj rekonstrukciji. Nastavno na to, opisan je postupak učenja takvog modela, te eksperimentalno vrednovanje rekonstrukcijske točnosti.
+U okviru ovog radu opisana je geometrija stereoskopskog para, kalibracija, rektifikacija i algoritmi korišteni za ostvarivanje korespondencije. Zatim definirani su osnovni pojmovi u dubokom učenju te postupci korišteni u dubokom učenju uz memorijske zahtjeve. Predstavljen je podatkovni skup na kojem su izvršeni postupci treniranja i validacije. Opisan je model kojim je ostvareno korespondencijsko ugrađivanje slikovnih okana koji su korišteni u stereoskopskoj rekonstrukciji. Nadalje, opisan je postupak učenja takvog modela te eksperimentalno vrednovanje rekonstrukcijske točnosti.
 
 \chapter{Stereoskopska rekonstrukcija}
 \section{Epipolarna geometrija}
-Epipolarna geometrija je geometrija koja ima primjenu u stereoskopskoj rekonstrukciji, a po definiciji opisuje odnos točaka u slikama dobivenih iz dviju kamera. Također naziva se i epipolarno ograničenje jer uvelike smanjuje broj točaka koje je potrebno provjeriti pri traženju korespondentnih točaka. Točka $X$ koja je prikazana na slici 2.1 prikazuje točku u 3D prostoru koja se snima iz dviju kamera. Točke $C$ i $C'$ prikazuju centre lijeve, odnosno desne kamere. Projekcija točke $X$ na ravninu lijeve kamere je $x$, a na ravninu desne kamere $x'$. Važno je napomenuti da su točke $X$, $x$ i $x'$ u istoj ravnini, te zajedno sa centrima kamera $C$ i $C'$ čine tzv. \textit{epipolarnu ravninu} $\pi$.\\
+Epipolarna geometrija je geometrija koja ima primjenu u stereoskopskoj rekonstrukciji, a po definiciji opisuje odnos točaka u slikama dobivenih iz dviju kamera. Također naziva se i epipolarno ograničenje jer uvelike smanjuje broj točaka koje je potrebno provjeriti pri traženju korespondentnih točaka. Točka $X$ koja je prikazana na slici 2.1 prikazuje točku u 3D prostoru koja se snima iz dviju kamera. Točke $C$ i $C'$ prikazuju centre lijeve odnosno desne kamere. Projekcija točke $X$ na ravninu lijeve kamere je $x$, a na ravninu desne kamere $x'$. Važno je napomenuti da su točke $X$, $x$ i $x'$ u istoj ravnini te zajedno sa centrima kamera $C$ i $C'$ čine tzv. \textit{epipolarnu ravninu} $\pi$.\\
 \begin{figure}[htb]
 \centering
 \includegraphics[scale=0.46]{img/slika1.png}
@@ -39,30 +39,30 @@ Epipolarna geometrija je geometrija koja ima primjenu u stereoskopskoj rekonstru
 \label{fig:Epipolar}
 \end{figure}\\
 Nadalje, na slici su označeni \textit{epipolovi} oznakama $e$ i $e'$ te oni prikazuju točke u kojima pravac koji povezuje centre kamera $C$ i $C'$ siječe slikovne ravnine.
-Najvažniji element su \textit{epipolarne linije}, označene dužinama koje spajaju $x$ i $e$, te $x'$ i $e'$, ali su zapravo pravci koji su nastali presjekom epipolarne ravnine sa slikovnom ravninom. Epipol je točka u kojoj se sijeku svi epipolarni pravci.\\
-Poznavajući činjenicu da se točke nalaze u istoj ravnini, te ako znamo položaj točke $x$ možemo odrediti položaj točke $x'$. Rješenja koja se moraju ispitati da bi saznali položaj točke $x'$ nalaze se na epipolarnoj liniji, što uvelike olakšava pronalaženje korespondentnih točaka.
+Najvažniji su element \textit{epipolarne linije}, označene dužinama koje spajaju $x$ i $e$, te $x'$ i $e'$, ali su zapravo pravci koji su nastali presjekom epipolarne ravnine sa slikovnom ravninom. Epipol je točka u kojoj se sijeku svi epipolarni pravci.\\
+Poznavajući činjenicu da se točke nalaze u istoj ravnini te ako znamo položaj točke $x$ možemo odrediti položaj točke $x'$. Rješenja koja se moraju ispitati da bi saznali položaj točke $x'$ nalaze se na epipolarnoj liniji što uvelike olakšava pronalaženje korespondentnih točaka.
 
 \section{Pretprocesiranje slika}
-Parametre geometrije sustava kamera moguće je  podijeliti na dvije vrste: intrinzični i ekstrinzični. Ekstrinzični parametri su oni koji opisuju odnos svojstva koja su zajednička kamerama. Intrinzični pak opisuju svojstva kamera koje se odnose svaku kameru pojedinačno. Kao primjere za intrinzične faktore navodimo svojstva koja utječu na slike, a to su nesavršenost leća (na slici 2.2 prikazano je radijalno izobličenje), pomak senzora od centra leća te slične fizičke karakteristike nesavršenosti kamera.\\
+Parametre geometrije sustava kamera moguće je  podijeliti na dvije vrste: intrinzični i ekstrinzični. Ekstrinzični su parametri oni koji opisuju odnos svojstva koja su zajednička kamerama. Intrinzični pak opisuju svojstva kamera koja se odnose svaku kameru pojedinačno. Kao primjere za intrinzične faktore navodimo svojstva koja utječu na slike, a to su nesavršenost leća (na slici 2.2 prikazano je radijalno izobličenje), pomak senzora od centra leća te slične fizičke karakteristike nesavršenosti kamera.\\
 \begin{figure}[htb]
 \centering
 \includegraphics[scale=0.7]{img/slika2.png}
 \caption{Primjeri radijalnog izobličenja. Izvor:\citep{bunjevac2017stereo}}
 \label{fig:Radial}
 \end{figure}\\
-S druge strane ekstrinzični parametri nas dovode do nužnih transformacija kojima se slike dovode u istu ravninu projekcije te se time postiže da su pikseli duž horizontalnog pravca jedne slike na istoj visini na drugoj slici. Taj pravac je već spomenut, riječ je o epipolarnoj liniji. Ovakvim transformacijama uvelike se olakšava pronalaženje korespondentnih točaka koje u ovom slučaju treba tražiti samo duž jedne linije, epipolarne linije. Problem je sveden na jednu dimenziju. Kalibracijom se rješava problem nesavršenosti leća, odnosno problem izobličenja slika.\\
+S druge strane ekstrinzični nas parametri dovode do nužnih transformacija kojima se slike dovode u istu ravninu projekcije te se time postiže da su pikseli duž horizontalnog pravca jedne slike na istoj visini na drugoj slici. Taj pravac ve je spomenut. Riječ je o epipolarnoj liniji. Ovakvim transformacijama uvelike se olakšava pronalaženje korespondentnih točaka koje u ovom slučaju treba tražiti samo duž jedne linije epipolarne linije. Problem je sveden na jednu dimenziju. Kalibracijom se rješava problem nesavršenosti leća, odnosno problem izobličenja slika.\\
 \\
 
 \subsection{Rektifikacija}
-Za postupak rektifikacije važni su ekstrinzični faktori kamera, dok na njihov izračun utječu intrinzični faktori. Transformacijom slika rektifikacijom dobivamo slike čiji pikseli koji u prostoru odgovaraju točkama na istoj visini,a nalaze se duž iste epipolarne linije. Također, nakon provedenih transformacija intrinzični parametri kamera postaju jednaki.\\
+Za postupak rektifikacije važni su ekstrinzični faktori kamera dok na njihov izračun utječu intrinzični faktori. Transformacijom slika rektifikacijom dobivamo slike čiji pikseli u prostoru odgovaraju točkama na istoj visini,a nalaze se duž iste epipolarne linije. Također, nakon provedenih transformacija intrinzični parametri kamera postaju jednaki.\\
 \begin{figure}[htb]
 \centering
 \includegraphics[width = 14.5cm]{img/slika3.png}
 \caption{Prikaz epipolarnih linija u rektificiranim slikama skupa KITTI 2015}
 \label{fig:Radial}
 \end{figure}\\
-Postupak se provodi kroz nekoliko koraka, a uključuje šahovsku ploču koja je pogodna zbog svojih svojstava. Prvi korak je traženje šahovskih polja. Postupak se nastavlja određivanjem izobličenja i ostalih parametara uz pomoć šahovskih polja.
-Na slici 2.2 prikazan je par slika iz stereo kamera koji je rektificiran. Slike su iz skupa KITTI 2015, te se na njima vide epipolarne linije. Lako je primijetiti da iste točke u prostoru nalaze na istoj visini, odnosno na istoj epipolarnoj liniji. Ovakvom transformacijom, korespondentne piksele potrebno je tražiti samo na istoj $y$-koordinati.
+Postupak se provodi kroz nekoliko koraka, a uključuje šahovsku ploču koja je pogodna zbog svojih svojstava. Prvi je korak traženje šahovskih polja. Postupak se nastavlja određivanjem izobličenja i ostalih parametara uz pomoć šahovskih polja.
+Na slici 2.2 prikazan je par slika iz stereo kamera koji je rektificiran. Slike su iz skupa KITTI 2015 te se na njima vide epipolarne linije. Lako je primijetiti da iste točke u prostoru nalaze na istoj visini, odnosno na istoj epipolarnoj liniji. Ovakvom transformacijom korespondentne piksele potrebno je tražiti samo na istoj $y$-koordinati.
 
 \section{Disparitet}
 Prijašnjim postupcima kalibracije i rektifikacije omogućen je postupak računanja dispariteta, odnosno postupak računanja koji za svaki piksel koji je nastao lijevom kamerom određuje piksel slike koja je nastala desnom kamerom, ali pomaknutog za udaljenost $d$ piksela po horizonatlnoj osi. \textit{Disparitet} je definiran kao horizontalni pomak $d$ između dvaju korespodentnih piksela u slikama nastalim iz dviju konkurentnih stereo kamera. Kao rezultat računanja dispariteta nastaje mapa dispariteta koja sadrži disparitet za svaki piksel referentne kamere. Odnos piksela slike iz lijeve kamere, koja je u ovom slučaju referentna, i slike iz desne kamere definira se kao: 
@@ -70,14 +70,14 @@ Prijašnjim postupcima kalibracije i rektifikacije omogućen je postupak računa
 I_{L}(x, y) = I_{D}(x-d,y)
 \label{eq:Disparitet}
 \end{equation}
-gdje su $I_{L}$ i $I_{D}$ slike nastale lijevom, odnosno desnom kamerom, respektivno. Uređenim parom $(x,y)$ opisani su pikseli slike iz lijeve kamere, a njemu korespodentni pikseli u slikama iz desne kamere označeni su pomakom za disparitet $d$ po horizontalnoj osi $(x-d,y)$. Važno je napomenuti da su slike u skupu KITTI 2015 rektificirane i kalibrirane, što znači da korespodentne piksele tražimo samo po horizontalnoj osi.
+gdje su $I_{L}$ i $I_{D}$ slike nastale lijevom odnosno desnom kamerom, respektivno. Uređenim parom $(x,y)$ opisani su pikseli slike iz lijeve kamere, a njemu korespodentni pikseli u slikama iz desne kamere označeni su pomakom za disparitet $d$ po horizontalnoj osi $(x-d,y)$. Važno je napomenuti da su slike u skupu KITTI 2015 rektificirane i kalibrirane što znači da korespodentne piksele tražimo samo po horizontalnoj osi.
 Pomoću izračunatog dispariteta moguće je izraziti odnos između piksela kamera i dubine scene kao:
 \begin{equation}
 Z=f\frac{B}{d}
 \label{eq:Fokalna}
 \end{equation}
-gdje je dubina scene, odnosno udaljenost objekta od kamere označena sa $Z$, $d$ je disparitet,s $B$ je označena udaljenost između središta kamera, a s $f$ je označena fokalna udaljenost kamere. Iz jednadžbe 2.2 je vidljiva obrnuta proporcionalnost između udaljenosti objekta od kamera, te dispariteta s druge strane. Kada je položaj objekta blizu kamere, disparitet će biti velik. A kako se udaljavamo od kamere, disparitet se smanjuje i u beskonačnosti postiže vrijednost 0.\\
-Na slici 2.4. je vidljivo da su epipolarne linije paralelne, te im je $y$-koordinata za korespondentne piksele jednaka. Disparitet je označen slovom $d$ i prikazuje horizontalni pomak.
+gdje je dubina scene, odnosno udaljenost objekta od kamere označena sa $Z$, $d$ je disparitet,s $B$ je označena udaljenost između središta kamera, a s $f$ je označena fokalna udaljenost kamere. Iz jednadžbe 2.2 vidljiva je obrnuta proporcionalnost između udaljenosti objekta od kamera, te dispariteta s druge strane. Kada je položaj objekta blizu kamere, disparitet će biti velik. A kako se udaljavamo od kamere, disparitet se smanjuje i u beskonačnosti postiže vrijednost 0.\\
+Na slici 2.4. je vidljivo da su epipolarne linije paralelne te im je $y$-koordinata za korespondentne piksele jednaka. Disparitet je označen slovom $d$ i prikazuje horizontalni pomak.
 \begin{figure}[htb]
 \centering
 \includegraphics[width = 14.5cm]{img/slika4.png}
@@ -86,16 +86,16 @@ Na slici 2.4. je vidljivo da su epipolarne linije paralelne, te im je $y$-koordi
 \end{figure}\\
 \\\\
 \section{Algoritam stereoskopske rekonstrukcije}
-Postupak stereoskopske korespondencije je zapravo postupak pronalaženja istih piksela u međusobno konkurentnim kamerama koji odgovaraju istoj točki u trodimenzionalnom prostoru. Postoje dvije vrste korespondencija, \textit{rijetke} i \textit{guste}. Razlika je u tome što rijetke ne izračunavaju disparitete za sve piksele, dok guste to rade. Guste korespondencije omogućene su današnjom snagom računala, te se rijetke više toliko ne koriste. Postupak guste korespondencije je tim teži što se prilikom izračuna susreće s nekim anomalijama u slikama, primjerice područjima bez teksture, refleksivnim podlogama na kojima se svjetlost drugačije lomi i odbija, te točkama koje se iz jedne kamere vide, a iz druge ne (\textit{stereoskopska sjena}).\\
-Dolazimo do stereo algoritama, svaki od njih moguće je opisati u četiri koraka (\citep{scharszelinski}, \citep{kovac2015stereo}):
+Postupak stereoskopske korespondencije je zapravo postupak pronalaženja istih piksela u međusobno konkurentnim kamerama koji odgovaraju istoj točki u trodimenzionalnom prostoru. Postoje dvije vrste korespondencija, \textit{rijetke} i \textit{guste}. Razlika je u tome što rijetke ne izračunavaju disparitete za sve piksele, dok guste to rade. Guste korespondencije omogućene su današnjom snagom računala, te se rijetke više toliko ne koriste. Postupak guste korespondencije je tim teži što se prilikom izračuna susreće s nekim anomalijama u slikama, primjerice područjima bez teksture, refleksivnim podlogama na kojima se svjetlost drugačije lomi i odbija te točkama koje se iz jedne kamere vide, a iz druge ne (\textit{stereoskopska sjena}).\\
+Dolazimo do stereo algoritama. Svaki od njih moguće je opisati u četiri koraka (\citep{scharszelinski}, \citep{kovac2015stereo}):
 \begin{enumerate}
 \item izračunavanje razlike između dvaju slikovnih okana, odnosno izračun podatkovnih cijena po prije definiranoj mjeri razlike
 \item prikupljanje podatkovnih cijena za disparitete koji se razmatraju
-\item izračun mape dispariteta, odnosno odabir najmanje prikupljene cijene za svaki piksel, uz optimizaciju
+\item izračun mape dispariteta, odnosno odabir najmanje prikupljene cijene za svaki piksel uz optimizaciju
 \item zaglađivanje mape dispariteta 
 \end{enumerate}
 
-Prvi korak ovog generičkog algoritma za stereoskopsku rekonstrukciju je izračun podatkovnih cijena. Izračun podatkovnih cijena može se računati prema pojedinačnim pikselima ili skupini piksela.  Izračun nam govori kolika je razlika između dvaju slikovnim okana, a razlika koja se koristi je definirana prije. Mjere razlike mogu biti sljedeće:
+Prvi je korak ovog generičkog algoritma za stereoskopsku rekonstrukciju izračun podatkovnih cijena. Izračun podatkovnih cijena može se računati prema pojedinačnim pikselima ili skupini piksela.  Izračun nam govori kolika je razlika između dvaju slikovnim okana, a razlika koja se koristi je definirana prije. Mjere razlike mogu biti sljedeće:
 \begin{itemize}
 \item[•] srednja kvadratna razlika
 \item[•] srednja apsolutna razlika
@@ -104,16 +104,16 @@ Prvi korak ovog generičkog algoritma za stereoskopsku rekonstrukciju je izraču
 \end{itemize}
 
 \newpage
-Drugi od koraka generičkog stereo algoritma je prikupljanje podatkovni cijena, tj. agregacija.  Na početku je postavljena granica za maksimalan disparitet, pa se tijekom ovog koraka izračunava podatkovna cijena za sve disparitete i skupa  od $0$ do $D$, te ćemo tako za svaki piksel imati $D+1$ podatkovnih cijena.\\
-Treći korak algoritma je izračun mape dispariteta. Nakon što su izračunate podatkovne cijene za razmatran skup dispariteta, treba odabrati metodu za izračun mape dispariteta. U praksi postoje \textit{lokalne} i \textit{globalne}. Lokalne metode prikupljaju cijene nad ograničenim područjem unutar same mape dispariteta, odnosno traže na ograničenom području oko referentne točke. Područje moje biti 2D ili 3D, te se prikupljanje može primjerice izvesti konvolucijom. S druge strane, globalne metode  preskaču korak prikupljanja podatkovnih cijena, te odmah nakon izračuna podatkovnih cijena vrše optimizaciju. Globalne metode minimiziraju kriterij nad cijelom slikom. Odnos između ovi metoda može se svesti na to da su lokalne brže, no globalne daju puno glađe mape dispariteta, što ih čini kvalitetnijima.\\
-Zadnji korak koji je naveden je zaglađivanje mapa dispariteta. Ovaj korak je opcionalan i neke metode ga koriste. Glavni cilj ovog koraka je uklanjanje šuma koji je nastao generiranjem mape. 
+Drugi od koraka generičkog stereo algoritma prikupljanje je podatkovni cijena, tj. agregacija.  Na početku je postavljena granica za maksimalan disparitet pa se tijekom ovog koraka izračunava podatkovna cijena za sve disparitete i skupa  od $0$ do $D$ te ćemo tako za svaki piksel imati $D+1$ podatkovnih cijena.\\
+Treći korak algoritma izračun je mape dispariteta. Nakon što su izračunate podatkovne cijene za razmatran skup dispariteta, treba odabrati metodu za izračun mape dispariteta. U praksi postoje \textit{lokalne} i \textit{globalne}. Lokalne metode prikupljaju cijene nad ograničenim područjem unutar same mape dispariteta, odnosno traže na ograničenom području oko referentne točke. Područje može biti 2D ili 3D te se prikupljanje može primjerice izvesti konvolucijom. S druge strane, globalne metode  preskaču korak prikupljanja podatkovnih cijena te odmah nakon izračuna podatkovnih cijena vrše optimizaciju. Globalne metode minimiziraju kriterij nad cijelom slikom. Odnos između ovi metoda može se svesti na to da su lokalne brže, no globalne daju puno glađe mape dispariteta što ih čini kvalitetnijima.\\
+Zadnji korak koji je naveden je zaglađivanje mapa dispariteta. Ovaj je korak opcionalan i neke metode ga koriste. Glavni je cilj ovog koraka uklanjanje šuma koji je nastao generiranjem mape. 
 \chapter{Duboko učenje}
-Duboko učenje grana strojnog učenja koje se ubrzano razvija. U teoriji se dubokim učenjem smatra proces učenja neuronske mreže s 3 ili više slojeva, sve što je manje od toga naziva se \textit{plitkim} modelima. Cilj takvih neuronskih mreža je simulirati ponašanje ljudskog mozga omogućujući učenje na velikim skupovima podataka. Zahvaljujući razvoju grafičkih kartica, omogućen je ubrzan razvoj dubokog učenja.
+Duboko učenje jest grana strojnog učenja koja se ubrzano razvija. U teoriji se dubokim učenjem smatra proces učenja neuronske mreže s 3 ili više slojeva, a  sve što je manje od toga naziva se \textit{plitkim} modelima. Cilj takvih neuronskih mreža je simulirati ponašanje ljudskog mozga omogućujući učenje na velikim skupovima podataka. Zahvaljujući razvoju grafičkih kartica, omogućen je ubrzan razvoj dubokog učenja.
 
-U sljedećim odjeljcima bit će predstavljeni osnovni pojmovi i koncepti korišteni prilikom oblikovanja modela i procesa učenja.
+U sljedećim e odjeljcima bit predstavljeni osnovni pojmovi i koncepti korišteni prilikom oblikovanja modela i procesa učenja.
 \section{Osnovni pojmovi u dubokom učenju}
 \subsection{Perceptron}
-U ranim počecima duboko učenja došlo se do ideje potpuno povezanih modela. Jedan od takvih modela je višeslojni perceptron. Iako je danas napuštena ideja potpuno povezanih modela, zanimljivo je pogledati koje mane novi modeli imaju za ispraviti.
+U ranim počecima dubokog učenja došlo se do ideje potpuno povezanih modela. Jedan je od takvih modela višeslojni perceptron. Iako je danas napuštena ideja potpuno povezanih modela, zanimljivo je pogledati koje mane novi modeli imaju za ispraviti.
 \begin{figure}[htb]
 \centering
 \includegraphics[width = 14.5cm]{img/slika5.png}
@@ -121,7 +121,7 @@ U ranim počecima duboko učenja došlo se do ideje potpuno povezanih modela. Je
 \label{fig:Perceptron}
 \end{figure}
 \newpage
-TLU perceptron su prvi definirali McCulloch i Pitts. Na slici 3.1. prikazan je jednostavni TLU perceptron. TLU perceptron ima više binarnih ulaza koji su označeni s $x_{1}$, $x_{2}$ i $x_{3}$, te proizvodi binarni izlaz. Rosenblatt je, kako bi odredio izlaz, definirao težine (u ovom slučaju $w_{1}$, $w_{2}$ i $w_{3}$). Težinama se mogu opisati doprinosi jednog neurona na drugi, odnosno koliko jedan utječe na drugog. Ovime je izlaz neurona definiran sumom umnoška težina i binarnih ulaza te praga s kojim s uspoređuje:
+TLU perceptron prvi su definirali McCulloch i Pitts. Na slici 3.1. prikazan je jednostavni TLU perceptron. TLU perceptron ima više binarnih ulaza koji su označeni s $x_{1}$, $x_{2}$ i $x_{3}$ te proizvodi binarni izlaz. Rosenblatt je, kako bi odredio izlaz, definirao težine (u ovom slučaju $w_{1}$, $w_{2}$ i $w_{3}$). Težinama se mogu opisati doprinosi jednog neurona na drugi, odnosno koliko jedan utječe na drugog. Ovime je izlaz neurona definiran sumom umnoška težina i binarnih ulaza te praga s kojim s uspoređuje:
 \begin{subequations}
 \begin{empheq}[left=\ \empheqlbrace]{align}
 0, {\sum_{k=1}^{n}} w_kx_k \le prag \\
@@ -129,7 +129,7 @@ TLU perceptron su prvi definirali McCulloch i Pitts. Na slici 3.1. prikazan je j
 \end{empheq}
 \label{eq:Perceptron}
 \end{subequations}
-Jedan sloj neuronske mreže čine perceptroni koji se nalaze u istom stupcu. Izlaz svakog perceptrona  izračunava se tako koristeći izlaze prethodnog sloja i definirane težine za svaki od ulaznih perceptrona. Gornju formulu moguće je transformirati tako što se prag uvede nova varijabla $b=-prag$, koja označava pristranost (engl. \textit{bias}). Pristranost u kontekstu duboko učenja je moguće definirati koliko je lako natjerati neuron  da kao izlaz izbaci 1. Ukoliko je pristranost vrlo velik broj, izlaz će u većini slučajeva biti 1, dok je za vrlo negativan broj suprotna situacija. Izmijenjena formula glasi:
+Jedan sloj neuronske mreže čine perceptroni koji se nalaze u istom stupcu. Izlaz svakog perceptrona  izračunava se tako koristeći izlaze prethodnog sloja i definirane težine za svaki od ulaznih perceptrona. Gornju formulu moguće je transformirati tako što se prag uvede nova varijabla $b=-prag$ koja označava pristranost (engl. \textit{bias}). Pristranost u kontekstu dubokog učenja je moguće definirati koliko je lako natjerati neuron da kao izlaz izbaci 1. Ukoliko je pristranost vrlo velik broj, izlaz će u većini slučajeva biti 1 dok je za vrlo negativan broj suprotna situacija. Izmijenjena formula glasi:
 \begin{subequations}
 \begin{empheq}[left=\ \empheqlbrace]{align}
 0, {\sum_{k=1}^{n}} w_kx_k  + b\le 0 \\
@@ -143,19 +143,19 @@ f=w^{T}x+b
 \label{eq:Linear}
 \end{equation}
 \subsection{Prijenosne funkcije}
-Ukoliko bi koristili linearnu funkciju izlaza iz prijašnjeg odjeljka, mala promjena u ulazu bi na izlazu generirala veliku promjenu. Stoga se uvode prijenosne, odnosno aktivacijske funkcije jer odlučuju hoće li neki neuron biti aktivan ili ne. Primarni cilj prijenosnih funkcija je omogućiti da se primijete sitne promjene na ulazu. Aktivaciju neurona možemo predstaviti sljedećom formulom:
+Ukoliko bi koristili linearnu funkciju izlaza iz prijašnjeg odjeljka, mala promjena u ulazu na izlazu bi generirala veliku promjenu. Stoga se uvode prijenosne odnosno aktivacijske funkcije jer odlučuju hoće li neki neuron biti aktivan ili ne. Primarni cilj prijenosnih funkcija je omogućiti da se primijete sitne promjene na ulazu. Aktivaciju neurona možemo predstaviti sljedećom formulom:
 \begin{equation}
 a^k=\sigma_{k}(W^T_{k}a^{k-1}+b)
 \label{eq:Aktivacija}
 \end{equation}
-gdje $a^k$ označava aktivaciju neurona trenutnog sloja, $a^{k-1}$ aktivaciju neurona prijašnjeg sloja, dok $\sigma$ označava aktivacijsku funkciju.
+gdje $a^k$ označava aktivaciju neurona trenutnog sloja, $a^{k-1}$ aktivaciju neurona prijašnjeg sloja, a $\sigma$ označava aktivacijsku funkciju.
 
-Prva funkcija koja će biti objašnjena je sigmoidalna funkcija čiji izraz je dan u nastavku:
+Prva funkcija koja će biti objašnjena je sigmoidalna funkcija čiji je izraz dan u nastavku:
 \begin{equation}
 \sigma(x)=\frac{1}{1 + e^{-x}}
 \label{eq:Aktivacija}
 \end{equation}
-Glavno obilježje sigmoidalne funkcije je to što je njezina kodomena na skupu od 0 do 1, te ju to čini primjenjivom u regresijskim i klasifikacijskim problemima. Veliki pozitivni brojevi poprimit će vrijednost 1, dok će jako negativni brojevi poprimiti vrijednost 0. Također, prednost je što je derivabilna, pa omogućuje učenje u kojem se koristi gradijentni spust. Glavni nedostatak zbog kojeg se sve manje koristi je problem nestajanja gradijenata (engl. \textit{vanishing gradient problem}) koji govori da gradijenti postaju toliko mali da ne nose nikakvu informaciju koja bi se mogla iskoristiti za učenje. Prikaz grafa funkcije je na slici 3.2.\\
+Glavno je obilježje sigmoidalne funkcije to što je njezina kodomena na skupu od 0 do 1 te ju to čini primjenjivom u regresijskim i klasifikacijskim problemima. Veliki pozitivni brojevi poprimit će vrijednost 1 dok će jako negativni brojevi poprimiti vrijednost 0. Također, prednost je što je derivabilna pa omogućuje učenje u kojem se koristi gradijentni spust. Glavni je nedostatak zbog kojeg se sve manje koristi problem nestajanja gradijenata (engl. \textit{vanishing gradient problem}) koji govori da gradijenti postaju toliko mali da ne nose nikakvu informaciju koja bi se mogla iskoristiti za učenje. Prikaz grafa funkcije je na slici 3.2.\\
 \begin{figure}[htb]
 \centering
 \includegraphics[scale=0.6]{img/slika6.png}
@@ -163,7 +163,7 @@ Glavno obilježje sigmoidalne funkcije je to što je njezina kodomena na skupu o
 \label{fig:Perceptron}
 \end{figure}
 \linebreak
-Funkcija koja je usko vezana uz sigmoidalnu je \textit{tangens hiperbolni}. Kodomena ove funkcije je na intervalu od -1 do 1. Problem nestajanja gradijenata je isto tako prisutan. Kako je bliska sigmoidalnoj, možemo uspostaviti odnos između njih koji je oblika:
+Funkcija koja je usko vezana uz sigmoidalnu je \textit{tangens hiperbolni}. Kodomena ove funkcije na intervalu je od -1 do 1. Problem nestajanja gradijenata isto je tako prisutan. Kako je bliska sigmoidalnoj, možemo uspostaviti odnos između njih koji je oblika:
 \begin{equation}
 \tanh(x) = 2\sigma(2x)-1
 \label{eq:Aktivacija}
@@ -175,7 +175,7 @@ Funkcija koja je usko vezana uz sigmoidalnu je \textit{tangens hiperbolni}. Kodo
 \label{fig:Perceptron}
 \end{figure}\\
 \\\\\\\\
-Sljedeća prijenosna funkcija koja se koristi je zglobnica (engl. \textit{ReLU - rectified linear unit}). Ova prijenosna funkcija propušta pozitivne vrijednosti, dok negativne vrijednosti ne propušta. Glavna prednost ove funkcije što je računski izuzetno jeftina, dok joj je nedostatak što za negativne vrijednosti uvijek daje 0. Izraz koji ju opisuje je oblika:
+Sljedeća prijenosna funkcija koja se koristi je zglobnica (engl. \textit{ReLU - rectified linear unit}). Ova prijenosna funkcija propušta pozitivne vrijednosti dok negativne vrijednosti ne propušta. Glavna je prednost ove funkcije što je računski izuzetno jeftina dok joj je nedostatak što za negativne vrijednosti uvijek daje 0. Izraz koji ju opisuje je oblika:
 \begin{equation}
 f(x)=max(0,x)
 \label{eq:Aktivacija}
@@ -188,7 +188,7 @@ f(x)=max(0,x)
 \end{figure}
 \linebreak
 \\\\
-Moguće je napraviti modifikaciju zglobnice tako da za negativne vrijednosti daje vrlo male vrijednosti, te se takva prijenosna funkcija naziva propusnom zglobnicom (engl. \textit{LReLU - leaky rectified linear unit}). U nastavku slijedi izraz koji ju opisuje:
+Moguće je napraviti modifikaciju zglobnice tako da za negativne vrijednosti daje vrlo male vrijednosti te se takva prijenosna funkcija naziva propusnom zglobnicom (engl. \textit{LReLU - leaky rectified linear unit}). U nastavku slijedi izraz koji ju opisuje:
 \begin{subequations}
 \begin{empheq}[left={f(x)=}\ \empheqlbrace]{align}
 x, x > 0 \\
@@ -196,7 +196,7 @@ x, x > 0 \\
 \end{empheq}
 \label{eq:Perceptron}
 \end{subequations}
-gdje je $\alpha$ parametar, odnosno u praksi vrlo mali pozitivan broj. Na slici 3.5. je vidljivo da negativne vrijednosti propušta uz prigušenje, dok na slici 3.4. obična zglobnica ne propušta.
+gdje je $\alpha$ parametar, odnosno u praksi vrlo mali pozitivan broj. Na slici 3.5. je vidljivo da negativne vrijednosti propušta uz prigušenje dok na slici 3.4. obična zglobnica ne propušta.
 \begin{figure}[htb]
 \centering
 \includegraphics[scale=0.6]{img/slika9.png}
@@ -228,7 +228,7 @@ Jednadžbom 3.9 prikazana je matrična reprezentacija dimenzija $3x3$, dok je je
 
 Ukoliko želimo zadržati rezoluciju slike nakon konvolucijskog sloja, potrebno je uvesti nadopunjavanje (engl. \textit{padding}). Najčešće je korištena metoda popunjavanja nulama. Još jedan od hiperparametara je korak (engl. \textit{stride}). Korak govori o tome koliko se jezgra pomiče u vertikalnom i horizontalnom smjeru. U jednadžbi 3.9 je korišten korak 1.
 \section{Učenje dubokih modela}
-Učenje dubokih modela, u generalnom slučaju neuronske mreže, je postupak tijekom koje se modelu na ulaz daju podaci iz skupa za učenje. Tijekom procesa učenja model ažurira težine u slojevima s ciljem kako bi što bolje aproksimirao izlaznu funkciju. Za početak kako bi mogli odrediti koliko odstupamo od pravih vrijednosti, uvodimo pojam funkcije gubitka. U procesu učenja provodi se minimizacija funkcije gubitka. Ukoliko na skupu podataka gubitak ispada malen, a na skupu podataka koje još nije vidio ispada izražen, govorimo o tzv. prenaučenosti modela, što znači da model nema sposobnost generalizacije.\\
+Učenje dubokih modela, u generalnom slučaju neuronske mreže, je postupak tijekom kojeg se modelu na ulaz daju podaci iz skupa za učenje. Tijekom procesa učenja model ažurira težine u slojevima s ciljem kako bi što bolje aproksimirao izlaznu funkciju. Za početak kako bismo mogli odrediti koliko odstupamo od pravih vrijednosti, uvodimo pojam funkcije gubitka. U procesu učenja provodi se minimizacija funkcije gubitka. Ukoliko na skupu podataka gubitak ispada malen, a na skupu podataka koje još nije vidio ispada izražen, govorimo o tzv. prenaučenosti modela, što znači da model nema sposobnost generalizacije.\\
 Postoji nekoliko pristupa učenju, nadzirano učenje u kojem se modelu predaju parovi oblika (ulaz, željeni izlaz), nenadzirano u kojem se modelu samo predaju ulazni podaci, te podržano učenje u kojem se maksimizira kumulativna nagrada. U ovom radu bit će razmatrano nadzirano učenje.\pagebreak
 \subsection{Funkcija gubitka}
 Kako bismo procijenili koliko model odstupa od željenih vrijednosti izlaza koristimo funkciju gubitka. Ako model loše procjenjuje, gubitak će biti velik. 
@@ -305,7 +305,7 @@ Kako je već rečeno, u ovom radu učenje je nadzirano. Podatkovni skup KITTI je
 \section{Podatkovni skup KITTI 2015}
 Podatkovni skup KITTI 2015, skup je od 200 stereo parova slika za koje su laserski izmjerene mape dispariteta. Stereo par slika je unaprijed kalibriran i rektificiran. Primjer uz odgovarajuće disparitete prikazan je na slici 4.1. Podatkovni skup je često korišten u postupcima stereoskopske rekonstrukcije za autonomnu vožnju.Podatkovni skup je podijeljen na skup za učenje kojeg čini 80\% slika, sljedećih 20\% čini skup za validaciju.\\
 Mape dispariteta su vrlo rijetke, odnosno dispariteti su izmjereni laserski za manji podskup piksela. Takve mape će na mjestima piksela za koje nije izmjeren disparitet imati vrijednost nula. Primjer takvih piksela su oni koji prikazuju udaljene objekte, kao što je nebo. Takvo mjerenje proizlazi iz toga što je disparitet obrnuto proporcionalan udaljenosti, te poprima vrijednost nula u beskonačnosti. \\
-Također napravljena je intervencija na područjima slike na kojima se nalazi automobil. Intervencija se sastojala od progušćivanja dispariteta na mjestima automobila. Ova intervencija je od velike važnosti rekonstrukcijskim algoritmima jer se na automobilu nalaze refleksivne površine poput stakla koje u konkurentnim stereo kamerama mogu izgledati drugačije.\cite{zbontar}
+Također napravljena je intervencija na područjima slike na kojima se nalazi automobil. Intervencija se sastojala od progušćivanja dispariteta na mjestima automobila. Ova intervencija je od velike važnosti kod rekonstrukcijskih algoritama jer se na automobilu nalaze refleksivne površine poput stakla koje u konkurentnim stereo kamerama mogu izgledati drugačije.\cite{zbontar}
 \begin{figure}[htb]
 \centering
 \includegraphics[width = 14.5cm]{img/slika11.png}
@@ -364,13 +364,13 @@ L(R, P, N) = max(0, m + \textbf{h}(\textbf{R}|\theta)\cdot \textbf{h}(\textbf{N}
 pri čemu $h$ predstavlja izlaz modela s parametrima $\theta$. U funkciji gubitka zahtijevano je da je ugrađivanje referentnog okna sličnije ugrađivanju pozitivnog okna u odnosu na ugrađivanje negativnog okna za najmanje $m$. Pojednostavljeno rečeno, model će učiti samo na primjerima na kojima je sličnost $R$ i $P$ manja od sličnosti između $R$ i $N$ za više od $m$.\cite{orsic}
 
 \chapter{Eksperimentalni rezultati}
-Kvalitetu rekonstrukcijske točnosti ocjenjuje se na slikama za koje su poznati dispariteti. Svi eksperimenti provedeni su na predstavljenom skupu KITTI. Za točno rekonstruirani piksel smatrat će se ako je odstupanje od točnog manje od 3. U tu svrhu koristit će se skup za testiranje koji se sastoji od 20\% slika početnog skupa od 200 slika.\\
+Kvaliteta rekonstrukcijske točnosti ocjenjuje se na slikama za koje su poznati dispariteti. Svi eksperimenti provedeni su na predstavljenom skupu KITTI. Za točno rekonstruirani piksel smatrat će se ako je odstupanje od točnog manje od 3. U tu svrhu koristit će se skup za testiranje koji se sastoji od 20\% slika početnog skupa od 200 slika.\\
 Učenje traje 14 epoha, algoritam učenja je ADAM uz stopu učenja koja iznosi $1e^{-3}$ do 10. epohe, a nakon nje je $1e^{-4}$. Veličina mini-grupe (engl. batch-size) je 128.  Svi eksperimenti izvodili su se na platformi Colab pro, a učenje je trajalo 9 sati.\\
 Provedena su sljedeća 3 eksperimenta:
 \begin{itemize}
-\item[•]Ulazne slike u boji (RGB) s čvrstim pozitivima, odnosno bez posmaka
-\item[•]Ulazne slike u boji (RGB) s rastresenim pozitivima, odnosno nasumično \linebreak posmaknutim brojem iz skupa \{-1, 0, 1\}
-\item[•]Sive ulazne slike s čvrstim pozitivima
+\item[•]ulazne slike u boji (RGB) s čvrstim pozitivima, odnosno bez posmaka
+\item[•]ulazne slike u boji (RGB) s rastresenim pozitivima, odnosno nasumično \linebreak posmaknutim brojem iz skupa \{-1, 0, 1\}
+\item[•]sive ulazne slike s čvrstim pozitivima
 \end{itemize}
 
 \begin{table}[htb]
@@ -419,7 +419,7 @@ Za izradu ovog rada korišten je programski jezik Python. Za izgradnju  i učenj
 
  Za pripremu podataka i računanje tenzorima korištena je biblioteka Numpy. Ova biblioteka pisana je u jeziku niske razine C, što čini operacije vrlo brzim.
  
-Za proces učenja, validacije i testiranja korištena je platforma Colab Pro u kombinaciji s Google Drive. Platforma u pretplati Pro nudi 3 grafičke kartice koje se dodjeljuju ovisno o raspoloživosti. Tipovi grafičkih kartica su sljedeći: K80, T4 i P100.
+Za proces učenja, validacije i testiranja korištena je platforma Colab Pro u kombinaciji s Google Drive. Platforma u pretplati Pro nudi tri grafičke kartice koje se dodjeljuju ovisno o raspoloživosti. Tipovi grafičkih kartica su sljedeći: K80, T4 i P100.
 
 Podatkovni skup KITTI 2015 uzet je s javno dostupne stranice u vlasništvu kolaboracije Karlsruhe Institute of Technology i Toyota Technological Institute. 
 \chapter{Zaključak}
@@ -435,14 +435,14 @@ Nastavno na ovaj rad, predlaže se korištenje samonadziranog učenja, što bi o
 
 
 \begin{sazetak}
-Korespodencijska metrika slikovnih okana jedna je od metoda korištenih u \\stereoskopskoj rekonstrukciji. Stereoskopska rekonstrukcija je postupak analize slika iz dviju ili više konkurentnih kamera kojim se dobiva rekonstrukcija scene u 3d formatu iz nativnog 2d formata. Korespondencijska metrika slikovnih okana zasniva se na ugrađivanju okana u visokodimenzionalan prostor. Nakon ugrađivanja okana slijedi pronalaženje korespondentnih piksela te se kao izlaz dobiva mapa dispariteta. U okviru rada korišten je duboki model učen i testiran na javno dostupnom podatkovnom skupu. Rezultati eksperimenata vrednovani su izračunom rekonstrukcijske točnosti.
+Korespodencijska metrika slikovnih okana jedna je od metoda korištenih u \\stereoskopskoj rekonstrukciji. Stereoskopska rekonstrukcija je postupak analize slika iz dviju ili više konkurentnih kamera kojim se dobiva rekonstrukcija scene u 3D formatu iz nativnog 2D formata. Korespondencijska metrika slikovnih okana zasniva se na ugrađivanju okana u visokodimenzionalan prostor. Nakon ugrađivanja okana slijedi pronalaženje korespondentnih piksela te se kao izlaz dobiva mapa dispariteta. U okviru rada korišten je duboki model učen i testiran na javno dostupnom podatkovnom skupu. Rezultati eksperimenata vrednovani su izračunom rekonstrukcijske točnosti.
 
 \kljucnerijeci{korespondencijska ugrađivanja, stereoskopska rekonstrukcija, duboko učenje, računalni vid}
 \end{sazetak}
 
 \engtitle{Correspondence embeddings for stereoscopic reconstruction}
 \begin{abstract}
-The correspondence metric of image patches is one of the methods used in stereoscopic reconstruction. Stereoscopic reconstruction is the process of analyzing images from two or more concurrent cameras to obtain a reconstruction of a scene in 3d format from the native 2d format. The correspondence metric is based on the embedding
+The correspondence metric of image patches is one of the methods used in stereoscopic reconstruction. Stereoscopic reconstruction is the process of analyzing images from two or more concurrent cameras to obtain a reconstruction of a scene in 3D format from the native 2D format. The correspondence metric is based on the embedding
 image patch to a high-dimensional metric space. After such embedding, the next phase is finding correspondent pixels. Disparity map is obtained as an output of calculation the most similar pixels.  In the paper there is a explanation of a deep model, which is learned and tested on a publicly available data set. The results of the experiments were evaluated by the calculation of reconstructive accuracy.
 
 \keywords{correspondence embeddings, stereoscopic reconstruction, deep learning, computer vision}
